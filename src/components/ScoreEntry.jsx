@@ -41,7 +41,12 @@ export default function ScoreEntry({ joueurs, onSave, saveLabel = 'Enregistrer' 
           return (
             <div key={j} className="score-table-row">
               <span className="score-joueur">{j}</span>
-              <select value={entries[j].position} onChange={e => setField(j, 'position', e.target.value)}>
+              <span className="score-label score-label-pos">Position</span>
+              <select
+                aria-label={`Position de ${j}`}
+                value={entries[j].position}
+                onChange={e => setField(j, 'position', e.target.value)}
+              >
                 <option value="">—</option>
                 {[1,2,3,4,5,6,7,8,9,10,11,12].map(p => (
                   <option key={p} value={p}>
@@ -49,13 +54,17 @@ export default function ScoreEntry({ joueurs, onSave, saveLabel = 'Enregistrer' 
                   </option>
                 ))}
               </select>
+              <span className="score-label score-label-pts">En jeu</span>
               <span className="champ-pts">{champ != null ? `${champ} pts` : '—'}</span>
               <input
-                type="number"
-                min="0"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={3}
                 placeholder="0"
+                aria-label={`Points en jeu de ${j}`}
                 value={entries[j].inGamePoints}
-                onChange={e => setField(j, 'inGamePoints', e.target.value)}
+                onChange={e => setField(j, 'inGamePoints', e.target.value.replace(/\D/g, ''))}
               />
             </div>
           );

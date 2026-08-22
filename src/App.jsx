@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { usePlayers } from './hooks/usePlayers';
 import { useTournament } from './hooks/useTournament';
 import { useAuth } from './hooks/useAuth';
+import { useWakeLock } from './hooks/useWakeLock';
 import Welcome from './components/Welcome';
 import Setup from './components/Setup';
 import Tournament, { combineScores } from './components/Tournament';
@@ -56,6 +57,9 @@ export default function App() {
     saveHalftimeScores, confirmHalftime, saveFinalScores, savePodium,
     endTournament, flipCard, saveStickerDrops,
   } = useTournament(uid);
+
+  // L'écran reste allumé tant qu'un tournoi tourne.
+  useWakeLock(!!tournament);
 
   // Ménage des tournois abandonnés, une fois par lancement.
   useEffect(() => {

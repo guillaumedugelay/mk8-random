@@ -2595,3 +2595,94 @@ input:focus {
   color: #0b0d10;
   white-space: nowrap;
 }
+
+/* ============================================================
+   Format téléphone  —  phase 3
+   ============================================================ */
+
+/* 100vh se trompe sur mobile : la barre d'adresse est comptée, la page
+   déborde et saute au défilement. 100dvh suit la hauteur réellement visible. */
+body { min-height: 100dvh; }
+
+.app {
+  min-height: 100dvh;
+  /* L'app s'étend sous l'encoche et la barre gestuelle (viewport-fit=cover),
+     on récupère la place perdue ici. */
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-top: max(24px, env(safe-area-inset-top));
+  padding-bottom: max(48px, calc(env(safe-area-inset-bottom) + 32px));
+}
+
+/* Zones tactiles : 44px est le minimum sous lequel on rate sa cible. */
+.btn,
+.player-chip,
+.circuit-btn,
+.edit-tab,
+.whoami-choice,
+.history-delete {
+  min-height: 44px;
+}
+
+.btn-sm { min-height: 38px; }
+
+/* 16px minimum : en dessous, iOS zoome tout seul au focus et ne dézoome pas. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Le clavier virtuel recouvre le bas de l'écran : sans marge de défilement,
+   le champ visé se retrouve juste dessous. */
+input,
+select {
+  scroll-margin-block: 96px;
+}
+
+@media (max-width: 480px) {
+  .app { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+
+  .pos-btn { width: 44px; height: 44px; font-size: 1rem; }
+
+  /* La saisie des scores en quatre colonnes est illisible sur un téléphone :
+     on empile le nom au-dessus de ses trois champs. */
+  .score-table-head { display: none; }
+
+  .score-table-row {
+    /* Deux colonnes égales : avec `auto`, l'input imposait sa largeur
+       naturelle et le sélecteur de position se retrouvait écrasé à 55px. */
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "nom      champ"
+      "lpos     lpts"
+      "position points";
+    gap: 4px 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .score-table-row .score-joueur { grid-area: nom; font-size: 1rem; }
+  .score-table-row .champ-pts    { grid-area: champ; text-align: right; }
+  .score-table-row .score-label-pos { grid-area: lpos; }
+  .score-table-row .score-label-pts { grid-area: lpts; }
+  .score-table-row select { grid-area: position; }
+  .score-table-row input  { grid-area: points; }
+
+  .score-table-row select,
+  .score-table-row input { min-height: 44px; width: 100%; min-width: 0; }
+
+  .score-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.55;
+  }
+}
+
+/* Sur grand écran, les libellés répétés n'ont pas lieu d'être :
+   l'en-tête du tableau les porte déjà. */
+@media (min-width: 481px) {
+  .score-label { display: none; }
+}
