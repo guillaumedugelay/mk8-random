@@ -1,4 +1,7 @@
-export default function Welcome({ onStart, onStats, onManage, onChef, players }) {
+export default function Welcome({
+  onStart, onJoin, onStats, onManage, onHistory, onAccount, onChef,
+  players, creating = false, error = '',
+}) {
   const records = computeRecords(players);
 
   return (
@@ -18,12 +21,18 @@ export default function Welcome({ onStart, onStats, onManage, onChef, players })
         ))}
       </div>
 
-      <button className="btn btn-primary btn-large" onClick={onStart}>
-        Lancer un tournoi !
+      <button className="btn btn-primary btn-large" onClick={onStart} disabled={creating}>
+        {creating ? 'Création du code...' : 'Lancer un tournoi !'}
       </button>
+      <button className="btn btn-secondary btn-large" onClick={onJoin}>
+        Rejoindre un tournoi
+      </button>
+      {error && <p className="welcome-error">{error}</p>}
       <div className="welcome-actions">
         <button className="btn btn-secondary" onClick={onStats}>Classement & Stats</button>
         <button className="btn btn-secondary" onClick={onManage}>Gérer les joueurs</button>
+        <button className="btn btn-secondary" onClick={onHistory}>Historique</button>
+        <button className="btn btn-secondary" onClick={onAccount}>Mon compte</button>
       </div>
       <button className="btn-chef-desk" onClick={onChef} title="Bureau du Chef">
         <span className="chef-desk-icon">👨‍💼</span>

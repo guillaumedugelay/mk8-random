@@ -1930,3 +1930,357 @@ input:focus {
   vertical-align: middle;
   margin-left: 4px;
 }
+
+/* ============================================================
+   Codes de tournoi, historique, compte  —  phase 2
+   ============================================================ */
+
+.welcome-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+/* ---------- Écran du code ---------- */
+.code-screen { text-align: center; }
+
+.code-hint {
+  opacity: 0.7;
+  font-size: 0.95rem;
+  margin: 0 0 24px;
+}
+
+.code-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 24px;
+}
+
+.code-digit {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(2.4rem, 14vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+  padding: 12px 4px;
+  min-width: clamp(52px, 18vw, 74px);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+}
+
+.code-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.code-connected {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+
+.code-connected-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  animation: code-pulse 2s infinite;
+}
+
+@keyframes code-pulse {
+  70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.code-connected-note {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  max-width: 34ch;
+  margin: 8px auto 28px;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-connected-dot { animation: none; }
+}
+
+/* ---------- Rejoindre ---------- */
+.join-screen { text-align: center; }
+
+.join-hint {
+  opacity: 0.7;
+  font-size: 0.95rem;
+  margin: 0 0 28px;
+}
+
+.join-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.join-digit {
+  width: clamp(56px, 18vw, 72px);
+  height: clamp(68px, 22vw, 88px);
+  text-align: center;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.join-status,
+.join-error {
+  margin-top: 20px;
+  font-size: 0.92rem;
+}
+
+.join-status { opacity: 0.65; }
+.join-error { color: #ff6b6b; max-width: 34ch; margin-inline: auto; line-height: 1.5; }
+
+/* ---------- Historique ---------- */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.history-delete {
+  flex: 0 0 auto;
+  width: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  font-size: 0.9rem;
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.history-delete:hover,
+.history-delete:focus-visible {
+  opacity: 1;
+  background: rgba(255, 107, 107, 0.18);
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.history-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.history-row:hover,
+.history-row:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.history-row-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px 12px;
+}
+
+.history-date { font-weight: 600; text-transform: capitalize; }
+.history-winner { font-size: 0.95rem; }
+
+.history-row-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+.history-avatars { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+
+/* ---------- Détail d'une soirée ---------- */
+.history-detail-sub {
+  opacity: 0.6;
+  font-size: 0.88rem;
+  margin: -8px 0 22px;
+}
+
+.history-podium {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.history-podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  min-width: 92px;
+}
+
+.history-podium-item.place-1 { background: rgba(255, 215, 0, 0.18); }
+.history-podium-item.place-2 { background: rgba(192, 192, 192, 0.16); }
+.history-podium-item.place-3 { background: rgba(205, 127, 50, 0.16); }
+
+.history-medal { font-size: 1.5rem; }
+.history-podium-name { font-size: 0.88rem; font-weight: 600; text-align: center; }
+
+.history-section-title {
+  font-size: 1rem;
+  margin: 28px 0 12px;
+  opacity: 0.85;
+}
+
+.history-scores-header,
+.history-scores-row {
+  grid-template-columns: 2rem 1fr 4rem 4rem;
+}
+
+.history-destiny {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.history-destiny-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  flex: 1 1 200px;
+}
+
+.history-destiny-card.lucky  { background: rgba(74, 222, 128, 0.14); }
+.history-destiny-card.wanted { background: rgba(148, 100, 220, 0.16); }
+
+.history-destiny-icon { font-size: 1.3rem; }
+.history-destiny-label { opacity: 0.7; }
+.history-destiny-name { font-weight: 700; margin-left: auto; }
+
+.history-rounds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-round {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.history-round-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+}
+
+.history-round-num { font-weight: 700; font-size: 0.85rem; opacity: 0.7; }
+.history-round-circuit { flex: 1 1 auto; font-size: 0.95rem; }
+
+.history-round-malus {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.history-round-malus li {
+  padding-left: 10px;
+  border-left: 2px solid transparent;
+  opacity: 0.85;
+}
+
+.history-round-malus .is-malus { border-left-color: #ff6b6b; }
+.history-round-malus .is-bonus { border-left-color: #4ade80; }
+
+/* ---------- Mon compte ---------- */
+.account-card {
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 14px;
+}
+
+.account-card h3 { margin: 0 0 8px; font-size: 1rem; }
+
+.account-text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0 0 14px;
+}
+
+.account-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.account-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.auth-error-screen {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.auth-error-screen p {
+  max-width: 34ch;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.history-error {
+  color: #ff6b6b;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}

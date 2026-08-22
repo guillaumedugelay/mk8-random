@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePlayers } from './hooks/usePlayers';
 import { useTournament } from './hooks/useTournament';
+import { useAuth } from './hooks/useAuth';
 import Welcome from './components/Welcome';
 import Setup from './components/Setup';
 import Tournament, { combineScores } from './components/Tournament';
@@ -9,7 +10,13 @@ import Stats from './components/Stats';
 import SpinPhase from './components/SpinPhase';
 import ChefLogin from './components/ChefLogin';
 import ChefBureau from './components/ChefBureau';
+import TournamentCode from './components/TournamentCode';
+import JoinTournament from './components/JoinTournament';
+import History from './components/History';
+import HistoryDetail from './components/HistoryDetail';
+import AccountSettings from './components/AccountSettings';
 import { useMalus } from './hooks/useMalus';
+import { createTournamentCode, cleanupStaleTournaments } from './lib/tournamentCode';
 import './App.css';
 
 function randInt(max) { return Math.floor(Math.random() * max); }
@@ -29,9 +36,46 @@ function pickSansObjet(manches, yoshiRound) {
 export default function App() {
   const [screen, setScreen] = useState('welcome');
   const [chefUnlocked, setChefUnlocked] = useState(false);
+  const [creating, setCreating] = useState(false);
+  const [codeError, setCodeError] = useState('');
+  const [historyEntry, setHistoryEntry] = useState(null);
+
+  const { user, uid, isAnonymous, loading: authLoading, error: authError, linkGoogle, removeAccount } = useAuth();
   const { players, addPlayer, deletePlayer, recordResults, updateCircuitMaudit, updateAvatar, updateCitation } = usePlayers();
   const { malus } = useMalus();
-  const { tournament, loading, startSpin, triggerSpin, advanceSpin, markSpinDone, finishSpin, revealCircuits, chooseCircuit, nextRound, saveHalftimeScores, confirmHalftime, saveFinalScores, endTournament, flipCard } = useTournament();
+  const {
+    tournament, loading: tournamentLoading, code, activateCode, clearCode,
+    startSpin, triggerSpin, advanceSpin, markSpinDone, finishSpin,
+    revealCircuits, chooseCircuit, nextRound,
+    saveHalftimeScores, confirmHalftime, saveFinalScores, savePodium,
+    endTournament, flipCard,
+  } = useTournament(uid);
+
+  // Ménage des tournois abandonnés, une fois par lancement.
+  useEffect(() => {
+    if (!uid) return;
+    cleanupStaleTournaments().catch(() => {});
+  }, [uid]);
+
+  async function handleLaunch() {
+    setCreating(true);
+    setCodeError('');
+    try {
+      const newCode = await createTournamentCode(uid);
+      activateCode(newCode);
+      setScreen('code');
+    } catch (err) {
+      setCodeError(err.message || 'Impossible de créer le tournoi.');
+    } finally {
+      setCreating(false);
+    }
+  }
+
+  async function handleCancelCode() {
+    await endTournament();
+    clearCode();
+    setScreen('welcome');
+  }
 
   function handleSetupDone(cfg) {
     const circuitsMaudits = Object.fromEntries(
@@ -81,10 +125,40 @@ export default function App() {
       luckyPlayer: tournament?.luckyPlayer,
       wantedPlayer: tournament?.wantedPlayer,
     });
+    savePodium(podiumResult);
     saveFinalScores(scores);
   }
 
-  if (loading) return <div className="app loading">Chargement...</div>;
+  async function handleRestart() {
+    await endTournament();
+    clearCode();
+    setScreen('welcome');
+  }
+
+  if (authLoading || (code && tournamentLoading)) {
+    return <div className="app loading">Chargement...</div>;
+  }
+
+  // Sans utilisateur, les règles Firebase refuseront tout : mieux vaut le dire
+  // franchement que laisser l'app à moitié fonctionner.
+  if (authError) {
+    return (
+      <div className="app">
+        <div className="screen auth-error-screen">
+          <h2>Connexion impossible</h2>
+          <p>
+            L'app n'arrive pas à ouvrir de session
+            {authError === 'auth/network-request-failed'
+              ? " : vérifie ta connexion réseau."
+              : " (" + authError + ")."}
+          </p>
+          <button className="btn btn-primary" onClick={() => window.location.reload()}>
+            Réessayer
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // Tirage en cours → tout le monde voit les roues
   if (tournament?.status === 'spinning') {
@@ -116,7 +190,23 @@ export default function App() {
           onSaveHalftimeScores={saveHalftimeScores}
           onConfirmHalftime={confirmHalftime}
           onFinalScoresDone={handleFinalScoresDone}
-          onRestart={endTournament}
+          onRestart={handleRestart}
+        />
+      </div>
+    );
+  }
+
+  // Le tournoi existe mais n'a pas encore démarré : celui qui l'a créé
+  // configure, ceux qui ont rejoint patientent sur l'écran du code.
+  if (tournament?.status === 'lobby' && screen !== 'setup') {
+    const connectedCount = Object.keys(tournament.connected || {}).length;
+    return (
+      <div className="app">
+        <TournamentCode
+          code={code}
+          connectedCount={connectedCount}
+          onContinue={() => setScreen('setup')}
+          onCancel={handleCancelCode}
         />
       </div>
     );
@@ -127,9 +217,14 @@ export default function App() {
       {screen === 'welcome' && (
         <Welcome
           players={players}
-          onStart={() => setScreen('setup')}
+          creating={creating}
+          error={codeError}
+          onStart={handleLaunch}
+          onJoin={() => setScreen('join')}
           onStats={() => setScreen('stats')}
           onManage={() => setScreen('manage')}
+          onHistory={() => setScreen('history')}
+          onAccount={() => setScreen('account')}
           onChef={() => { setChefUnlocked(false); setScreen('chef-login'); }}
         />
       )}
@@ -138,6 +233,35 @@ export default function App() {
           players={players}
           onAdd={addPlayer}
           onDone={handleSetupDone}
+          onBack={() => setScreen('code')}
+        />
+      )}
+      {screen === 'join' && (
+        <JoinTournament
+          onJoined={c => { activateCode(c); setScreen('welcome'); }}
+          onBack={() => setScreen('welcome')}
+        />
+      )}
+      {screen === 'history' && (
+        <History
+          players={players}
+          onOpen={entry => { setHistoryEntry(entry); setScreen('history-detail'); }}
+          onBack={() => setScreen('welcome')}
+        />
+      )}
+      {screen === 'history-detail' && historyEntry && (
+        <HistoryDetail
+          entry={historyEntry}
+          players={players}
+          onBack={() => setScreen('history')}
+        />
+      )}
+      {screen === 'account' && (
+        <AccountSettings
+          isAnonymous={isAnonymous}
+          email={user?.email}
+          onLinkGoogle={linkGoogle}
+          onDeleteAccount={async () => { await removeAccount(); setScreen('welcome'); }}
           onBack={() => setScreen('welcome')}
         />
       )}

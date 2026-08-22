@@ -1,0 +1,36 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "players": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+
+    "malus": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+
+    "tournament": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+
+    "tournaments": {
+      ".read": "auth != null",
+      "$code": {
+        ".write": "auth != null",
+        ".validate": "$code.matches(/^[0-9]{4}$/)"
+      }
+    },
+
+    "history": {
+      ".read": "auth != null",
+      "$tid": {
+        ".write": "auth != null && (!data.exists() || !newData.exists())"
+      }
+    }
+  }
+}
