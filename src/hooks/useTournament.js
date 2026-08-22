@@ -51,9 +51,13 @@ export function useTournament(uid) {
     if (!code || !uid) return;
     const presence = ref(db, `tournaments/${code}/connected/${uid}`);
     set(presence, serverTimestamp());
-    const cancel = onDisconnect(presence).remove();
+    // Garder l'objet OnDisconnect, pas la promesse que remove() renvoie :
+    // c'est lui qui porte cancel(). Sinon le nettoyage de l'effet lève
+    // « cancel is not a function » et fait tomber tout l'arbre React.
+    const surDeconnexion = onDisconnect(presence);
+    surDeconnexion.remove().catch(() => {});
     return () => {
-      cancel.cancel().catch(() => {});
+      surDeconnexion.cancel().catch(() => {});
       set(presence, null).catch(() => {});
     };
   }, [code, uid]);

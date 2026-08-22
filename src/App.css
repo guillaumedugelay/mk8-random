@@ -2686,3 +2686,27 @@ select {
 @media (min-width: 481px) {
   .score-label { display: none; }
 }
+
+/* Le bouton du Bureau du Chef est en position absolue en haut à droite et
+   recouvrait le titre sur un écran de téléphone : constaté sur Redmi Note 10,
+   le « M » de RANDOM passait dessous. On réserve sa place plutôt que de
+   rapetisser le titre, qui fait l'identité de l'écran. */
+@media (max-width: 560px) {
+  .btn-chef-desk {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+  }
+
+  .btn-chef-desk .chef-desk-icon { font-size: 1.5rem; }
+  .btn-chef-desk .chef-desk-label { font-size: 0.52rem; }
+
+  .title-block {
+    /* Le titre se replie sous le bouton au lieu de passer derrière. */
+    padding-right: 80px;
+    padding-left: 8px;
+    text-align: left;
+  }
+
+  .game-title { font-size: 2.5rem; letter-spacing: 2px; }
+}

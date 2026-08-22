@@ -8,7 +8,10 @@ import { useEffect } from 'react';
 // pas du tout) : l'absence n'est pas une erreur, on s'en passe simplement.
 export function useWakeLock(actif) {
   useEffect(() => {
-    if (!actif || !('wakeLock' in navigator)) return;
+    if (!actif) return;
+    // Vérifié sur WebView 151 (Redmi Note 10 5G) : le verrou est bien pris,
+    // le système rapporte un SCREEN_BRIGHT_WAKE_LOCK au nom de l'app.
+    if (!('wakeLock' in navigator)) return;
 
     let sentinel = null;
     let annule = false;
@@ -17,7 +20,8 @@ export function useWakeLock(actif) {
       try {
         sentinel = await navigator.wakeLock.request('screen');
       } catch {
-        // Refusé (batterie faible, onglet en arrière-plan) : sans conséquence.
+        // Refusé (batterie faible, app en arrière-plan) : sans conséquence,
+        // l'écran s'éteindra normalement.
       }
     }
 

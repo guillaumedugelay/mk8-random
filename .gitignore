@@ -40,3 +40,4 @@ android/keystore.properties
 # Livrables de build : regenerables, et 7 Mo par version
 store/*.aab
 store/*.apk
+store/captures/
