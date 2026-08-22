@@ -1,0 +1,457 @@
+{
+  "circuits": {
+    "Champidrome - Coupe Champignon": "https://mario.wiki.gallery/images/thumb/5/50/MK8D_Mario_Kart_Stadium_Course_Icon_Full.png/120px-MK8D_Mario_Kart_Stadium_Course_Icon_Full.png",
+    "Parc Glougloop - Coupe Champignon": "https://mario.wiki.gallery/images/thumb/7/7d/MK8D_Water_Park_Course_Icon_Full.png/120px-MK8D_Water_Park_Course_Icon_Full.png",
+    "Piste aux délices - Coupe Champignon": "https://mario.wiki.gallery/images/thumb/a/af/MK8D_Sweet_Sweet_Canyon_Course_Icon_Full.png/120px-MK8D_Sweet_Sweet_Canyon_Course_Icon_Full.png",
+    "Temple Thwomp - Coupe Champignon": "https://mario.wiki.gallery/images/thumb/8/8b/MK8D_Thwomp_Ruins_Course_Icon_Full.png/120px-MK8D_Thwomp_Ruins_Course_Icon_Full.png",
+    "Circuit Mario - Coupe Fleur": "https://mario.wiki.gallery/images/thumb/8/8e/MK8D_Mario_Circuit_Course_Icon_Full.png/120px-MK8D_Mario_Circuit_Course_Icon_Full.png",
+    "Promenade Toad - Coupe Fleur": "https://mario.wiki.gallery/images/thumb/5/55/MK8D_Toad_Harbor_Course_Icon_Full.png/120px-MK8D_Toad_Harbor_Course_Icon_Full.png",
+    "Manoir Trempé - Coupe Fleur": "https://mario.wiki.gallery/images/thumb/0/03/MK8D_Twisted_Mansion_Course_Icon_Full.png/120px-MK8D_Twisted_Mansion_Course_Icon_Full.png",
+    "Cascades Maskass - Coupe Fleur": "https://mario.wiki.gallery/images/thumb/0/0a/MK8D_Shy_Guy_Falls_Course_Icon_Full.png/120px-MK8D_Shy_Guy_Falls_Course_Icon_Full.png",
+    "Aéroport Azur - Coupe Étoile": "https://mario.wiki.gallery/images/thumb/5/52/MK8D_Sunshine_Airport_Course_Icon_Full.png/120px-MK8D_Sunshine_Airport_Course_Icon_Full.png",
+    "Lagon Tourbillon - Coupe Étoile": "https://mario.wiki.gallery/images/thumb/0/0e/MK8D_Dolphin_Shoals_Course_Icon_Full.png/120px-MK8D_Dolphin_Shoals_Course_Icon_Full.png",
+    "Club Mario - Coupe Étoile": "https://mario.wiki.gallery/images/thumb/5/54/MK8D_Electrodrome_Course_Icon_Full.png/120px-MK8D_Electrodrome_Course_Icon_Full.png",
+    "Descente givrée - Coupe Étoile": "https://mario.wiki.gallery/images/thumb/4/49/MK8D_Mount_Wario_Course_Icon_Full.png/120px-MK8D_Mount_Wario_Course_Icon_Full.png",
+    "Voie Céleste - Coupe Couronne": "https://mario.wiki.gallery/images/thumb/3/3c/MK8D_Cloudtop_Cruise_Course_Icon_Full.png/120px-MK8D_Cloudtop_Cruise_Course_Icon_Full.png",
+    "Désert Toussec - Coupe Couronne": "https://mario.wiki.gallery/images/thumb/7/76/MK8D_Bone-Dry_Dunes_Course_Icon_Full.png/120px-MK8D_Bone-Dry_Dunes_Course_Icon_Full.png",
+    "Château de Bowser - Coupe Couronne": "https://mario.wiki.gallery/images/thumb/7/76/MK8D_Bowser%27s_Castle_Course_Icon_Full.png/120px-MK8D_Bowser%27s_Castle_Course_Icon_Full.png",
+    "Route Arc-en-ciel - Coupe Couronne": "https://mario.wiki.gallery/images/thumb/2/2e/MK8D_Rainbow_Road_Course_Icon_Full.png/120px-MK8D_Rainbow_Road_Course_Icon_Full.png",
+    "Circuit Yoshi - Coupe Oeuf": "https://mario.wiki.gallery/images/thumb/0/09/MK8D_GCN_Yoshi_Circuit_Course_Icon_Full.png/120px-MK8D_GCN_Yoshi_Circuit_Course_Icon_Full.png",
+    "Arène d'Excitebike - Coupe Oeuf": "https://mario.wiki.gallery/images/thumb/4/44/MK8D_Excitebike_Arena_Course_Icon_Full.png/120px-MK8D_Excitebike_Arena_Course_Icon_Full.png",
+    "Route du dragon - Coupe Oeuf": "https://mario.wiki.gallery/images/thumb/b/bf/MK8D_Dragon_Driftway_Course_Icon_Full.png/120px-MK8D_Dragon_Driftway_Course_Icon_Full.png",
+    "Mute City - Coupe Oeuf": "https://mario.wiki.gallery/images/thumb/9/96/MK8D_Mute_City_Course_Icon_Full.png/120px-MK8D_Mute_City_Course_Icon_Full.png",
+    "Parc Baby Cadum - Coupe Pomme verte": "https://mario.wiki.gallery/images/thumb/9/95/MK8D_GCN_Baby_Park_Course_Icon_Full.png/120px-MK8D_GCN_Baby_Park_Course_Icon_Full.png",
+    "Pays Fromage - Coupe Pomme verte": "https://mario.wiki.gallery/images/thumb/7/78/MK8D_GBA_Cheese_Land_Course_Icon_Full.png/120px-MK8D_GBA_Cheese_Land_Course_Icon_Full.png",
+    "Passage Feuillage - Coupe Pomme verte": "https://mario.wiki.gallery/images/thumb/e/e4/MK8_Wild_Woods_Course_Icon.png/120px-MK8_Wild_Woods_Course_Icon.png",
+    "Animal Crossing - Coupe Pomme verte": "https://mario.wiki.gallery/images/thumb/c/cb/MK8D_Animal_Crossing_Course_Icon_Full.png/120px-MK8D_Animal_Crossing_Course_Icon_Full.png",
+    "Prairie Émeuh Émeuh - Coupe Carapace": "https://mario.wiki.gallery/images/thumb/5/5b/MK8D_Wii_Moo_Moo_Meadows_Course_Icon_Full.png/120px-MK8D_Wii_Moo_Moo_Meadows_Course_Icon_Full.png",
+    "Circuit Mario - Coupe Carapace": "https://mario.wiki.gallery/images/thumb/a/a6/MK8D_GBA_Mario_Circuit_Course_Icon_Full.png/120px-MK8D_GBA_Mario_Circuit_Course_Icon_Full.png",
+    "Plage Cheep Cheep - Coupe Carapace": "https://mario.wiki.gallery/images/thumb/b/b8/MK8D_DS_Cheep_Cheep_Beach_Course_Icon_Full.png/120px-MK8D_DS_Cheep_Cheep_Beach_Course_Icon_Full.png",
+    "Autoroute Toad - Coupe Carapace": "https://mario.wiki.gallery/images/thumb/7/72/MK8D_N64_Toad%27s_Turnpike_Course_Icon_Full.png/120px-MK8D_N64_Toad%27s_Turnpike_Course_Icon_Full.png",
+    "Désert Sec-Sec (qui pue du bec) - Coupe Banane": "https://mario.wiki.gallery/images/thumb/3/31/MK8D_GCN_Dry_Dry_Desert_Course_Icon_Full.png/120px-MK8D_GCN_Dry_Dry_Desert_Course_Icon_Full.png",
+    "Plaine Donut 3 - Coupe Banane": "https://mario.wiki.gallery/images/thumb/3/32/MK8D_SNES_Donut_Plains_3_Course_Icon_Full.png/120px-MK8D_SNES_Donut_Plains_3_Course_Icon_Full.png",
+    "Autodrome Royal - Coupe Banane": "https://mario.wiki.gallery/images/thumb/5/50/MK8D_N64_Royal_Raceway_Course_Icon_Full.png/120px-MK8D_N64_Royal_Raceway_Course_Icon_Full.png",
+    "Forêt Tropicale DK - Coupe Banane": "https://mario.wiki.gallery/images/thumb/b/bc/MK8D_3DS_DK_Jungle_Course_Icon_Full.png/120px-MK8D_3DS_DK_Jungle_Course_Icon_Full.png",
+    "Stade Wario - Coupe Feuille": "https://mario.wiki.gallery/images/thumb/d/d2/MK8D_DS_Wario_Stadium_Course_Icon_Full.png/120px-MK8D_DS_Wario_Stadium_Course_Icon_Full.png",
+    "Royaume Sorbet - Coupe Feuille": "https://mario.wiki.gallery/images/thumb/6/60/MK8D_GCN_Sherbet_Land_Course_Icon_Full.png/120px-MK8D_GCN_Sherbet_Land_Course_Icon_Full.png",
+    "Piste Musicale - Coupe Feuille": "https://mario.wiki.gallery/images/thumb/a/ad/MK8D_3DS_Music_Park_Course_Icon_Full.png/120px-MK8D_3DS_Music_Park_Course_Icon_Full.png",
+    "Vallée Yoshi - Coupe Feuille": "https://mario.wiki.gallery/images/thumb/7/7e/MK8D_N64_Yoshi_Valley_Course_Icon_Full.png/120px-MK8D_N64_Yoshi_Valley_Course_Icon_Full.png",
+    "Horloge Tic-Tac - Coupe Éclair": "https://mario.wiki.gallery/images/thumb/e/e1/MK8D_DS_Tick-Tock_Clock_Course_Icon_Full.png/120px-MK8D_DS_Tick-Tock_Clock_Course_Icon_Full.png",
+    "Égout Piranha - Coupe Éclair": "https://mario.wiki.gallery/images/thumb/f/f5/MK8D_3DS_Piranha_Plant_Slide_Course_Icon_Full.png/120px-MK8D_3DS_Piranha_Plant_Slide_Course_Icon_Full.png",
+    "Volcan Grondin - Coupe Éclair": "https://mario.wiki.gallery/images/thumb/0/02/MK8D_Wii_Grumble_Volcano_Course_Icon_Full.png/120px-MK8D_Wii_Grumble_Volcano_Course_Icon_Full.png",
+    "Route Arc-en-ciel - Coupe Éclair": "https://mario.wiki.gallery/images/thumb/3/31/MK8D_N64_Rainbow_Road_Course_Icon_Full.png/120px-MK8D_N64_Rainbow_Road_Course_Icon_Full.png",
+    "Mine Wario - Coupe Triforce": "https://mario.wiki.gallery/images/thumb/9/94/MK8_Wii_Wario%27s_Gold_Mine_Course_Icon.png/120px-MK8_Wii_Wario%27s_Gold_Mine_Course_Icon.png",
+    "Route Arc-en-ciel - Coupe Triforce": "https://mario.wiki.gallery/images/thumb/f/fa/MK8D_SNES_Rainbow_Road_Course_Icon_Full.png/120px-MK8D_SNES_Rainbow_Road_Course_Icon_Full.png",
+    "Station Glagla - Coupe Triforce": "https://mario.wiki.gallery/images/thumb/7/7a/MK8D_Ice_Ice_Outpost_Course_Icon_Full.png/120px-MK8D_Ice_Ice_Outpost_Course_Icon_Full.png",
+    "Circuit d'Hyrule - Coupe Triforce": "https://mario.wiki.gallery/images/thumb/f/f9/MK8D_Hyrule_Circuit_Course_Icon_Full.png/120px-MK8D_Hyrule_Circuit_Course_Icon_Full.png",
+    "Koopapourri - Coupe Clochette": "https://mario.wiki.gallery/images/thumb/9/91/MK8D_3DS_Neo_Bowser_City_Course_Icon_Full.png/120px-MK8D_3DS_Neo_Bowser_City_Course_Icon_Full.png",
+    "Route Ruban - Coupe Clochette": "https://mario.wiki.gallery/images/thumb/b/b1/MK8D_GBA_Ribbon_Road_Course_Icon_Full.png/120px-MK8D_GBA_Ribbon_Road_Course_Icon_Full.png",
+    "Métro Turbo Dodo - Coupe Clochette": "https://mario.wiki.gallery/images/thumb/6/65/MK8D_Super_Bell_Subway_Course_Icon_Full.png/120px-MK8D_Super_Bell_Subway_Course_Icon_Full.png",
+    "Big Blue - Coupe Clochette": "https://mario.wiki.gallery/images/thumb/0/06/MK8_Big_Blue_Course_Icon.png/120px-MK8_Big_Blue_Course_Icon.png",
+    "Promenade à Paris - Coupe Champignon Doré": "https://mario.wiki.gallery/images/thumb/b/be/MK8D_Tour_Paris_Promenade_Course_Icon_Full.png/120px-MK8D_Tour_Paris_Promenade_Course_Icon_Full.png",
+    "Circuit Toad - Coupe Champignon Doré": "https://mario.wiki.gallery/images/thumb/f/f6/MK8D_3DS_Toad_Circuit_Course_Icon_Full.png/120px-MK8D_3DS_Toad_Circuit_Course_Icon_Full.png",
+    "Montagne Choco - Coupe Champignon Doré": "https://mario.wiki.gallery/images/thumb/0/06/MK8D_N64_Choco_Mountain_Course_Icon_Full.png/120px-MK8D_N64_Choco_Mountain_Course_Icon_Full.png",
+    "Supermarché Coco - Coupe Champignon Doré": "https://mario.wiki.gallery/images/thumb/1/1b/MK8D_Wii_Coconut_Mall_Course_Icon_Full.png/120px-MK8D_Wii_Coconut_Mall_Course_Icon_Full.png",
+    "Traversée de Tokyo - Coupe Feuille rayée": "https://mario.wiki.gallery/images/thumb/2/27/MK8D_Tour_Tokyo_Blur_Course_Icon_Full.png/120px-MK8D_Tour_Tokyo_Blur_Course_Icon_Full.png",
+    "Corniche Champignon - Coupe Feuille rayée": "https://mario.wiki.gallery/images/thumb/2/28/MK8D_DS_Shroom_Ridge_Course_Icon_Full.png/120px-MK8D_DS_Shroom_Ridge_Course_Icon_Full.png",
+    "Jardin Volant - Coupe Feuille rayée": "https://mario.wiki.gallery/images/thumb/1/19/MK8D_GBA_Sky_Garden_Course_Icon_Full.png/120px-MK8D_GBA_Sky_Garden_Course_Icon_Full.png",
+    "Dojo Ninja - Coupe Feuille rayée": "https://mario.wiki.gallery/images/thumb/3/36/MK8D_Ninja_Hideaway_Course_Icon_Full.png/120px-MK8D_Ninja_Hideaway_Course_Icon_Full.png",
+    "Escapade New-yorkaise - Coupe Navet": "https://mario.wiki.gallery/images/thumb/b/b1/MK8D_Tour_New_York_Minute_Course_Icon_Full.png/120px-MK8D_Tour_New_York_Minute_Course_Icon_Full.png",
+    "Circuit Mario 3 - Coupe Navet": "https://mario.wiki.gallery/images/thumb/d/de/MK8D_SNES_Mario_Circuit_3_Course_Icon_Full.png/120px-MK8D_SNES_Mario_Circuit_3_Course_Icon_Full.png",
+    "Désert Kalimari - Coupe Navet": "https://mario.wiki.gallery/images/thumb/0/00/MK8D_N64_Kalimari_Desert_Course_Icon_Full.png/120px-MK8D_N64_Kalimari_Desert_Course_Icon_Full.png",
+    "Flipper qui pue la merde - Coupe Navet": "https://mario.wiki.gallery/images/thumb/0/09/MK8D_DS_Waluigi_Pinball_Course_Icon_Full.png/120px-MK8D_DS_Waluigi_Pinball_Course_Icon_Full.png",
+    "Sprint à Sydney - Coupe Hélico": "https://mario.wiki.gallery/images/thumb/6/62/MK8D_Tour_Sydney_Sprint_Course_Icon_Full.png/120px-MK8D_Tour_Sydney_Sprint_Course_Icon_Full.png",
+    "Pays Neigeux - Coupe Hélico": "https://mario.wiki.gallery/images/thumb/6/67/MK8D_GBA_Snow_Land_Course_Icon_Full.png/120px-MK8D_GBA_Snow_Land_Course_Icon_Full.png",
+    "Gorge Champignon - Coupe Hélico": "https://mario.wiki.gallery/images/thumb/8/8d/MK8D_Wii_Mushroom_Gorge_Course_Icon_Full.png/120px-MK8D_Wii_Mushroom_Gorge_Course_Icon_Full.png",
+    "Cité Sorbet - Coupe Hélico": "https://mario.wiki.gallery/images/thumb/6/69/MK8D_Sky-High_Sundae_Course_Icon_Full.png/120px-MK8D_Sky-High_Sundae_Course_Icon_Full.png",
+    "Détour à Londres - Coupe Pierre": "https://mario.wiki.gallery/images/thumb/9/94/MK8D_Tour_London_Loop_Course_Icon_Full.png/120px-MK8D_Tour_London_Loop_Course_Icon_Full.png",
+    "Lac Boo - Coupe Pierre": "https://mario.wiki.gallery/images/thumb/f/f2/MK8D_GBA_Boo_Lake_Course_Icon_Full.png/120px-MK8D_GBA_Boo_Lake_Course_Icon_Full.png",
+    "Mont Éboulis - Coupe Pierre": "https://mario.wiki.gallery/images/thumb/4/46/MK8D_3DS_Rock_Rock_Mountain_Course_Icon_Full.png/120px-MK8D_3DS_Rock_Rock_Mountain_Course_Icon_Full.png",
+    "Bois Vermeil - Coupe Pierre": "https://mario.wiki.gallery/images/thumb/e/e5/MK8D_Wii_Maple_Treeway_Course_Icon_Full.png/120px-MK8D_Wii_Maple_Treeway_Course_Icon_Full.png",
+    "Balade Berlinoise - Coupe Lune": "https://mario.wiki.gallery/images/thumb/9/94/MK8D_Tour_Berlin_Byways_Course_Icon_Full.png/120px-MK8D_Tour_Berlin_Byways_Course_Icon_Full.png",
+    "Jardin Peach - Coupe Lune": "https://mario.wiki.gallery/images/thumb/b/b9/MK8D_DS_Peach_Gardens_Course_Icon_Full.png/120px-MK8D_DS_Peach_Gardens_Course_Icon_Full.png",
+    "Mont Festif - Coupe Lune": "https://mario.wiki.gallery/images/thumb/e/e3/MK8D_Merry_Mountain_Course_Icon_Full.png/120px-MK8D_Merry_Mountain_Course_Icon_Full.png",
+    "Route Arc-en-ciel - Coupe Lune": "https://mario.wiki.gallery/images/thumb/4/48/MK8D_3DS_Rainbow_Road_Course_Icon_Full.png/120px-MK8D_3DS_Rainbow_Road_Course_Icon_Full.png",
+    "Virée à Amsterdam - Coupe Pomme rouge": "https://mario.wiki.gallery/images/thumb/f/fa/MK8D_Tour_Amsterdam_Drift_Course_Icon_Full.png/120px-MK8D_Tour_Amsterdam_Drift_Course_Icon_Full.png",
+    "Riverside Park - Coupe Pomme rouge": "https://mario.wiki.gallery/images/thumb/4/4a/MK8D_GBA_Riverside_Park_Course_Icon_Full.png/120px-MK8D_GBA_Riverside_Park_Course_Icon_Full.png",
+    "Dick Pic - Coupe Pomme rouge": "https://mario.wiki.gallery/images/thumb/c/c4/MK8D_Wii_DK_Summit_Course_Icon_Full.png/120px-MK8D_Wii_DK_Summit_Course_Icon_Full.png",
+    "Île de Yoshi - Coupe Pomme rouge": "https://mario.wiki.gallery/images/thumb/2/23/MK8D_Yoshi%27s_Island_Course_Icon.png/120px-MK8D_Yoshi%27s_Island_Course_Icon.png",
+    "Bousculade à Bangkok - Coupe Boomerang": "https://mario.wiki.gallery/images/thumb/3/3d/MK8D_Tour_Bangkok_Rush_Course_Icon_Full.png/120px-MK8D_Tour_Bangkok_Rush_Course_Icon_Full.png",
+    "Circuit Mario - Coupe Boomerang": "https://mario.wiki.gallery/images/thumb/2/27/MK8D_DS_Mario_Circuit_Course_Icon_Full.png/120px-MK8D_DS_Mario_Circuit_Course_Icon_Full.png",
+    "Stade Waluigi - Coupe Boomerang": "https://mario.wiki.gallery/images/thumb/a/aa/MK8D_GCN_Waluigi_Stadium_Course_Icon_Full.png/120px-MK8D_GCN_Waluigi_Stadium_Course_Icon_Full.png",
+    "Poursuite à Singapour - Coupe Boomerang": "https://mario.wiki.gallery/images/thumb/5/5a/MK8D_Tour_Singapore_Speedway_Course_Icon_Full.png/120px-MK8D_Tour_Singapore_Speedway_Course_Icon_Full.png",
+    "Athènes Antique - Coupe Plume": "https://mario.wiki.gallery/images/thumb/c/ce/MK8D_Tour_Athens_Dash_Course_Icon_Full.png/120px-MK8D_Tour_Athens_Dash_Course_Icon_Full.png",
+    "Paquebot Daisy - Coupe Plume": "https://mario.wiki.gallery/images/thumb/d/d6/MK8D_GCN_Daisy_Cruiser_Course_Icon_Full.png/120px-MK8D_GCN_Daisy_Cruiser_Course_Icon_Full.png",
+    "Route Clair de Loose - Coupe Plume": "https://mario.wiki.gallery/images/thumb/3/3d/MK8D_Wii_Moonview_Highway_Course_Icon_Full.png/120px-MK8D_Wii_Moonview_Highway_Course_Icon_Full.png",
+    "Course à la propreté - Coupe Plume": "https://mario.wiki.gallery/images/thumb/1/14/MK8D_Squeaky_Clean_Sprint_Course_Icon_Full.png/120px-MK8D_Squeaky_Clean_Sprint_Course_Icon_Full.png",
+    "Road-trip à Los Angeles - Coupe Cerises": "https://mario.wiki.gallery/images/thumb/8/8f/MK8D_Tour_Los_Angeles_Laps_Course_Icon_Full.png/120px-MK8D_Tour_Los_Angeles_Laps_Course_Icon_Full.png",
+    "Pays Crépuscule - Coupe Cerises": "https://mario.wiki.gallery/images/thumb/c/cf/MK8D_GBA_Sunset_Wilds_Course_Icon_Full.png/120px-MK8D_GBA_Sunset_Wilds_Course_Icon_Full.png",
+    "Cap Kippa - Coupe Cerises": "https://mario.wiki.gallery/images/thumb/5/5a/MK8D_Wii_Koopa_Cape_Course_Icon.png/120px-MK8D_Wii_Koopa_Cape_Course_Icon.png",
+    "Virages à Vancouver - Coupe Cerises": "https://mario.wiki.gallery/images/thumb/4/4e/MK8D_Tour_Vancouver_Velocity_Course_Icon_Full.png/120px-MK8D_Tour_Vancouver_Velocity_Course_Icon_Full.png",
+    "Roma Romantica - Coupe Gland": "https://mario.wiki.gallery/images/thumb/3/32/MK8D_Tour_Rome_Avanti_Course_Icon_Full.png/120px-MK8D_Tour_Rome_Avanti_Course_Icon_Full.png",
+    "Montagne DK - Coupe Gland": "https://mario.wiki.gallery/images/thumb/5/52/MK8D_GCN_DK_Mountain_Course_Icon_Full.png/120px-MK8D_GCN_DK_Mountain_Course_Icon_Full.png",
+    "Circuit Daisy - Coupe Gland": "https://mario.wiki.gallery/images/thumb/6/62/MK8D_Wii_Daisy_Circuit_Course_Icon_Full.png/120px-MK8D_Wii_Daisy_Circuit_Course_Icon_Full.png",
+    "Ruines Plante Piranha - Coupe Gland": "https://mario.wiki.gallery/images/thumb/a/ab/MK8D_Piranha_Plant_Cove_Course_Icon_Full.png/120px-MK8D_Piranha_Plant_Cove_Course_Icon_Full.png",
+    "Méandres madrilènes - Coupe Carapace bleue": "https://mario.wiki.gallery/images/thumb/5/5c/MK8D_Tour_Madrid_Drive_Course_Icon_Full.png/120px-MK8D_Tour_Madrid_Drive_Course_Icon_Full.png",
+    "Monde glacé d'Harmonie - Coupe Carapace bleue": "https://mario.wiki.gallery/images/thumb/e/ef/MK8D_3DS_Rosalina%27s_Ice_World_Course_Icon_Full.png/120px-MK8D_3DS_Rosalina%27s_Ice_World_Course_Icon_Full.png",
+    "Château de Bowser 3 - Coupe Carapace bleue": "https://mario.wiki.gallery/images/thumb/3/36/MK8D_SNES_Bowser_Castle_3_Course_Icon_Full.png/120px-MK8D_SNES_Bowser_Castle_3_Course_Icon_Full.png",
+    "Route Arc-en-ciel - Coupe Carapace bleue": "https://mario.wiki.gallery/images/thumb/9/9a/MK8D_GBA_Rainbow_Road_Course_Icon_Full.png/120px-MK8D_GBA_Rainbow_Road_Course_Icon_Full.png"
+  },
+  "avatars": [
+    {
+      "id": "mario",
+      "name": "Mario",
+      "url": "https://mario.wiki.gallery/images/thumb/d/d9/MK8_Mario_Icon.png/70px-MK8_Mario_Icon.png"
+    },
+    {
+      "id": "luigi",
+      "name": "Luigi",
+      "url": "https://mario.wiki.gallery/images/thumb/5/51/MK8_Luigi_Icon.png/70px-MK8_Luigi_Icon.png"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c2/MK8_Peach_Icon.png/70px-MK8_Peach_Icon.png"
+    },
+    {
+      "id": "daisy",
+      "name": "Daisy",
+      "url": "https://mario.wiki.gallery/images/thumb/3/32/MK8_Daisy_Icon.png/70px-MK8_Daisy_Icon.png"
+    },
+    {
+      "id": "rosalina",
+      "name": "Harmonie",
+      "url": "https://mario.wiki.gallery/images/thumb/8/89/MK8_Rosalina_Icon.png/70px-MK8_Rosalina_Icon.png"
+    },
+    {
+      "id": "tanooki",
+      "name": "Mario Tanuki",
+      "url": "https://mario.wiki.gallery/images/thumb/a/a2/MK8_Tanooki_Mario_Icon.png/70px-MK8_Tanooki_Mario_Icon.png"
+    },
+    {
+      "id": "catpeach",
+      "name": "Peach Chat",
+      "url": "https://mario.wiki.gallery/images/thumb/a/ad/MK8_Cat_Peach_Icon.png/70px-MK8_Cat_Peach_Icon.png"
+    },
+    {
+      "id": "wario",
+      "name": "Wario",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c2/MK8_Wario_Icon.png/70px-MK8_Wario_Icon.png"
+    },
+    {
+      "id": "waluigi",
+      "name": "Waluigi",
+      "url": "https://mario.wiki.gallery/images/thumb/7/78/MK8_Waluigi_Icon.png/70px-MK8_Waluigi_Icon.png"
+    },
+    {
+      "id": "dk",
+      "name": "Donkey Kong",
+      "url": "https://mario.wiki.gallery/images/thumb/0/08/MK8_DKong_Icon.png/70px-MK8_DKong_Icon.png"
+    },
+    {
+      "id": "bowser",
+      "name": "Bowser",
+      "url": "https://mario.wiki.gallery/images/thumb/4/47/MK8_Bowser_Icon.png/70px-MK8_Bowser_Icon.png"
+    },
+    {
+      "id": "bowserjr",
+      "name": "Bowser Jr.",
+      "url": "https://mario.wiki.gallery/images/thumb/2/26/MK8_Bowser_Jr_Icon.png/70px-MK8_Bowser_Jr_Icon.png"
+    },
+    {
+      "id": "drybowser",
+      "name": "Bowser Skelet",
+      "url": "https://mario.wiki.gallery/images/thumb/2/29/MK8_Dry_Bowser_Icon.png/70px-MK8_Dry_Bowser_Icon.png"
+    },
+    {
+      "id": "toad",
+      "name": "Toad",
+      "url": "https://mario.wiki.gallery/images/thumb/4/45/MK8_Toad_Icon.png/70px-MK8_Toad_Icon.png"
+    },
+    {
+      "id": "toadette",
+      "name": "Toadette",
+      "url": "https://mario.wiki.gallery/images/thumb/8/8e/MK8_Toadette_Icon.png/70px-MK8_Toadette_Icon.png"
+    },
+    {
+      "id": "koopa",
+      "name": "Koopa",
+      "url": "https://mario.wiki.gallery/images/thumb/b/bc/MK8_Koopa_Icon.png/70px-MK8_Koopa_Icon.png"
+    },
+    {
+      "id": "lakitu",
+      "name": "Lakitu",
+      "url": "https://mario.wiki.gallery/images/thumb/7/7d/MK8_Lakitu_Icon.png/70px-MK8_Lakitu_Icon.png"
+    },
+    {
+      "id": "kingboo",
+      "name": "Roi Boo",
+      "url": "https://mario.wiki.gallery/images/thumb/1/1d/MK8DX_King_Boo_Icon.png/70px-MK8DX_King_Boo_Icon.png"
+    },
+    {
+      "id": "drybones",
+      "name": "Skelex",
+      "url": "https://mario.wiki.gallery/images/thumb/3/3f/MK8DX_Dry_Bones_Icon.png/70px-MK8DX_Dry_Bones_Icon.png"
+    },
+    {
+      "id": "kamek",
+      "name": "Kamek",
+      "url": "https://mario.wiki.gallery/images/thumb/0/00/MK8DX_Kamek_Icon.png/70px-MK8DX_Kamek_Icon.png"
+    },
+    {
+      "id": "wiggler",
+      "name": "Wiggler",
+      "url": "https://mario.wiki.gallery/images/thumb/7/7e/MK8DX_Wiggler_Icon.png/70px-MK8DX_Wiggler_Icon.png"
+    },
+    {
+      "id": "petey",
+      "name": "Flora Piranha",
+      "url": "https://mario.wiki.gallery/images/thumb/8/86/MK8DX_Petey_Piranha_Icon.png/70px-MK8DX_Petey_Piranha_Icon.png"
+    },
+    {
+      "id": "metalmario",
+      "name": "Mario de métal",
+      "url": "https://mario.wiki.gallery/images/thumb/e/e3/MK8_MMario_Icon.png/70px-MK8_MMario_Icon.png"
+    },
+    {
+      "id": "pinkgoldpeach",
+      "name": "Peach d'or rose",
+      "url": "https://mario.wiki.gallery/images/thumb/0/0d/MK8_PGPeach_Icon.png/70px-MK8_PGPeach_Icon.png"
+    },
+    {
+      "id": "goldmario",
+      "name": "Mario d'or",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c8/MK8DX_Gold_Mario_Icon.png/70px-MK8DX_Gold_Mario_Icon.png"
+    },
+    {
+      "id": "peachette",
+      "name": "Peachette",
+      "url": "https://mario.wiki.gallery/images/thumb/f/fd/MK8DX_Peachette_Icon.png/70px-MK8DX_Peachette_Icon.png"
+    },
+    {
+      "id": "babymario",
+      "name": "Bébé Mario",
+      "url": "https://mario.wiki.gallery/images/thumb/d/d2/MK8_BabyMario_Icon.png/70px-MK8_BabyMario_Icon.png"
+    },
+    {
+      "id": "babyluigi",
+      "name": "Bébé Luigi",
+      "url": "https://mario.wiki.gallery/images/thumb/a/aa/MK8_BabyLuigi_Icon.png/70px-MK8_BabyLuigi_Icon.png"
+    },
+    {
+      "id": "babypeach",
+      "name": "Bébé Peach",
+      "url": "https://mario.wiki.gallery/images/thumb/3/3d/MK8_BabyPeach_Icon.png/70px-MK8_BabyPeach_Icon.png"
+    },
+    {
+      "id": "babydaisy",
+      "name": "Bébé Daisy",
+      "url": "https://mario.wiki.gallery/images/thumb/4/43/MK8_BabyDaisy_Icon.png/70px-MK8_BabyDaisy_Icon.png"
+    },
+    {
+      "id": "babyrosalina",
+      "name": "Bébé Harmonie",
+      "url": "https://mario.wiki.gallery/images/thumb/0/09/MK8_BabyRosalina_Icon.png/70px-MK8_BabyRosalina_Icon.png"
+    },
+    {
+      "id": "larry",
+      "name": "Larry",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c2/MK8_Larry_Icon.png/70px-MK8_Larry_Icon.png"
+    },
+    {
+      "id": "morton",
+      "name": "Morton",
+      "url": "https://mario.wiki.gallery/images/thumb/7/72/MK8_Morton_Icon.png/70px-MK8_Morton_Icon.png"
+    },
+    {
+      "id": "wendy",
+      "name": "Wendy",
+      "url": "https://mario.wiki.gallery/images/thumb/d/d9/MK8_Wendy_Icon.png/70px-MK8_Wendy_Icon.png"
+    },
+    {
+      "id": "iggy",
+      "name": "Iggy",
+      "url": "https://mario.wiki.gallery/images/thumb/d/dd/MK8_Iggy_Icon.png/70px-MK8_Iggy_Icon.png"
+    },
+    {
+      "id": "roy",
+      "name": "Roy",
+      "url": "https://mario.wiki.gallery/images/thumb/3/3e/MK8_Roy_Icon.png/70px-MK8_Roy_Icon.png"
+    },
+    {
+      "id": "lemmy",
+      "name": "Lemmy",
+      "url": "https://mario.wiki.gallery/images/thumb/f/fc/MK8_Lemmy_Icon.png/70px-MK8_Lemmy_Icon.png"
+    },
+    {
+      "id": "ludwig",
+      "name": "Ludwig",
+      "url": "https://mario.wiki.gallery/images/thumb/a/a8/MK8_Ludwig_Icon.png/70px-MK8_Ludwig_Icon.png"
+    },
+    {
+      "id": "yoshi-green",
+      "name": "Yoshi Vert",
+      "url": "https://mario.wiki.gallery/images/thumb/9/91/MK8_Yoshi_Icon.png/70px-MK8_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-red",
+      "name": "Yoshi Rouge",
+      "url": "https://mario.wiki.gallery/images/thumb/b/b4/MK8_Red_Yoshi_Icon.png/70px-MK8_Red_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-blue",
+      "name": "Yoshi Bleu",
+      "url": "https://mario.wiki.gallery/images/thumb/c/cc/MK8_Blue_Yoshi_Icon.png/70px-MK8_Blue_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-yellow",
+      "name": "Yoshi Jaune",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c7/MK8_Yellow_Yoshi_Icon.png/70px-MK8_Yellow_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-pink",
+      "name": "Yoshi Rose",
+      "url": "https://mario.wiki.gallery/images/thumb/4/4f/MK8_Pink_Yoshi_Icon.png/70px-MK8_Pink_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-lightblue",
+      "name": "Yoshi Bleu clair",
+      "url": "https://mario.wiki.gallery/images/thumb/8/8c/MK8_Light-Blue_Yoshi_Icon.png/70px-MK8_Light-Blue_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-black",
+      "name": "Yoshi Noir",
+      "url": "https://mario.wiki.gallery/images/thumb/5/5c/MK8_Black_Yoshi_Icon.png/70px-MK8_Black_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-white",
+      "name": "Yoshi Blanc",
+      "url": "https://mario.wiki.gallery/images/thumb/3/3f/MK8_White_Yoshi_Icon.png/70px-MK8_White_Yoshi_Icon.png"
+    },
+    {
+      "id": "yoshi-orange",
+      "name": "Yoshi Orange",
+      "url": "https://mario.wiki.gallery/images/thumb/8/89/MK8_Orange_Yoshi_Icon.png/70px-MK8_Orange_Yoshi_Icon.png"
+    },
+    {
+      "id": "shyguy-red",
+      "name": "Maskass Rouge",
+      "url": "https://mario.wiki.gallery/images/thumb/7/7f/MK8_ShyGuy_Icon.png/70px-MK8_ShyGuy_Icon.png"
+    },
+    {
+      "id": "shyguy-blue",
+      "name": "Maskass Bleu",
+      "url": "https://mario.wiki.gallery/images/thumb/4/41/MK8_Blue_Shy_Guy_Icon.png/70px-MK8_Blue_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-green",
+      "name": "Maskass Vert",
+      "url": "https://mario.wiki.gallery/images/thumb/7/74/MK8_Green_Shy_Guy_Icon.png/70px-MK8_Green_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-yellow",
+      "name": "Maskass Jaune",
+      "url": "https://mario.wiki.gallery/images/thumb/d/d3/MK8_Yellow_Shy_Guy_Icon.png/70px-MK8_Yellow_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-pink",
+      "name": "Maskass Rose",
+      "url": "https://mario.wiki.gallery/images/thumb/b/bf/MK8_Pink_Shy_Guy_Icon.png/70px-MK8_Pink_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-lightblue",
+      "name": "Maskass Bleu clair",
+      "url": "https://mario.wiki.gallery/images/thumb/d/d9/MK8_Light-Blue_Shy_Guy_Icon.png/70px-MK8_Light-Blue_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-black",
+      "name": "Maskass Noir",
+      "url": "https://mario.wiki.gallery/images/thumb/5/57/MK8_Black_Shy_Guy_Icon.png/70px-MK8_Black_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-white",
+      "name": "Maskass Blanc",
+      "url": "https://mario.wiki.gallery/images/thumb/2/20/MK8_White_Shy_Guy_Icon.png/70px-MK8_White_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "shyguy-orange",
+      "name": "Maskass Orange",
+      "url": "https://mario.wiki.gallery/images/thumb/9/9e/MK8_Orange_Shy_Guy_Icon.png/70px-MK8_Orange_Shy_Guy_Icon.png"
+    },
+    {
+      "id": "inkling-girl",
+      "name": "Fille Inkling",
+      "url": "https://mario.wiki.gallery/images/thumb/b/b9/MK8DX_Female_Inkling_Icon.png/70px-MK8DX_Female_Inkling_Icon.png"
+    },
+    {
+      "id": "inkling-boy",
+      "name": "Garçon Inkling",
+      "url": "https://mario.wiki.gallery/images/thumb/3/3c/MK8DX_Male_Inkling_Icon.png/70px-MK8DX_Male_Inkling_Icon.png"
+    },
+    {
+      "id": "inkling-purple",
+      "name": "Inkling Violet",
+      "url": "https://mario.wiki.gallery/images/thumb/b/ba/MK8D_Purple_Inkling_Icon.png/70px-MK8D_Purple_Inkling_Icon.png"
+    },
+    {
+      "id": "inkling-cyan",
+      "name": "Inkling Cyan",
+      "url": "https://mario.wiki.gallery/images/thumb/e/e6/MK8D_Cyan_Inkling_Icon.png/70px-MK8D_Cyan_Inkling_Icon.png"
+    },
+    {
+      "id": "inkling-green",
+      "name": "Inkling Vert",
+      "url": "https://mario.wiki.gallery/images/thumb/a/a8/MK8D_Green_Inkling_Icon.png/70px-MK8D_Green_Inkling_Icon.png"
+    },
+    {
+      "id": "inkling-pink",
+      "name": "Inkling Rose",
+      "url": "https://mario.wiki.gallery/images/thumb/1/14/MK8D_Pink_Inkling_Icon.png/70px-MK8D_Pink_Inkling_Icon.png"
+    },
+    {
+      "id": "birdo",
+      "name": "Birdo",
+      "url": "https://mario.wiki.gallery/images/thumb/f/f6/MK8D_Birdo_Icon.png/70px-MK8D_Birdo_Icon.png"
+    },
+    {
+      "id": "pauline",
+      "name": "Pauline",
+      "url": "https://mario.wiki.gallery/images/thumb/d/dd/MK8DX_Pauline_Icon.png/70px-MK8DX_Pauline_Icon.png"
+    },
+    {
+      "id": "funkykong",
+      "name": "Funky Kong",
+      "url": "https://mario.wiki.gallery/images/thumb/4/4a/MK8DX_Funky_Kong_Icon.png/70px-MK8DX_Funky_Kong_Icon.png"
+    },
+    {
+      "id": "diddykong",
+      "name": "Diddy Kong",
+      "url": "https://mario.wiki.gallery/images/thumb/8/82/MK8DX_Diddy_Kong_Icon.png/70px-MK8DX_Diddy_Kong_Icon.png"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "url": "https://mario.wiki.gallery/images/thumb/9/9e/MK8D_BotW_Link_Icon.png/70px-MK8D_BotW_Link_Icon.png"
+    },
+    {
+      "id": "villager-m",
+      "name": "Villageois",
+      "url": "https://mario.wiki.gallery/images/thumb/1/16/VillagerMale-Icon-MK8.png/70px-VillagerMale-Icon-MK8.png"
+    },
+    {
+      "id": "villager-f",
+      "name": "Villageoise",
+      "url": "https://mario.wiki.gallery/images/thumb/c/c3/VillagerFemale-Icon-MK8.png/70px-VillagerFemale-Icon-MK8.png"
+    },
+    {
+      "id": "isabelle",
+      "name": "Marie",
+      "url": "https://mario.wiki.gallery/images/thumb/2/20/MK8_Isabelle_Icon.png/70px-MK8_Isabelle_Icon.png"
+    },
+    {
+      "id": "mii",
+      "name": "Mii",
+      "url": "https://mario.wiki.gallery/images/thumb/b/bb/Mii_MK8.png/70px-Mii_MK8.png"
+    }
+  ]
+}
