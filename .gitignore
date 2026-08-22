@@ -36,3 +36,7 @@ android/app/src/main/res/xml/config.xml
 android/keystore.properties
 *.jks
 *.keystore
+
+# Livrables de build : regenerables, et 7 Mo par version
+store/*.aab
+store/*.apk
