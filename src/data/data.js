@@ -61,7 +61,7 @@ export const MALUS = [
   { texte: "Départ papi (Départ différé de 5sec)", type: "malus" },
   { texte: "Départ gros papi (Départ différé de 10sec)", type: "malus" },
   { texte: "Assisté social (Activation de toutes les aides)", type: "malus" },
-  { texte: "Enfant roi (Choix du circuit)", type: "bonus" },
+  { texte: "Enfant roi (Choix du circuit)", type: "bonus", unique: true },
   { texte: "Départ canon (tout le monde fait un faux départ sauf toi)", type: "bonus" },
   { texte: "Gâchette facile (Utilisation des objets dans la seconde dans les 2 premiers tours)", type: "malus" },
   { texte: "Abstinence (Interdiction d'utiliser des objets pendant les 2 premiers tours)", type: "malus" },
@@ -69,16 +69,9 @@ export const MALUS = [
   { texte: "Dans son slip (Premier tour derrière le dernier)", type: "malus" },
   { texte: "Départ super canon (tout le monde fait un départ différé de 5 sec sauf toi)", type: "bonus" },
   { texte: "Départ hyper canon (tout le monde fait un départ différé de 10 sec sauf toi)", type: "bonus" },
-  { texte: "Enfant maudit (Le circuit que tu détestes le plus est choisi)", type: "malus", extra: "maudit" },
-  { texte: "Joue en fermant un oeil", type: "malus" },
+  { texte: "Enfant maudit (Le circuit que tu détestes le plus est choisi)", type: "malus", extra: "maudit", unique: true },
 ];
 
-export const BONUS_EMEU = [
-  "Bonus: Le choix de la reine (Choix du circuit)",
-  "Bonus: Départ super canon (tout le monde fait un départ différé de 5 sec sauf toi)",
-  "Bonus: Départ hyper canon (tout le monde fait un départ différé de 10 sec sauf toi)",
-  "Bonus: La princesse et les larbins (interdit de dépasser Emeu sur les 2 premiers tours)",
-];
 
 export const CIRCUITS_MAUDITS = {
   "Ralf": "Route Clair de Loose",

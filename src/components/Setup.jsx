@@ -1,35 +1,36 @@
 import { useState } from 'react';
 
-export default function Setup({ onDone }) {
+export default function Setup({ players, onAdd, onDone, onBack }) {
   const [manches, setManches] = useState('');
-  const [joueurs, setJoueurs] = useState(['']);
+  const [selected, setSelected] = useState([]);
+  const [newName, setNewName] = useState('');
 
-  function addJoueur() {
-    setJoueurs([...joueurs, '']);
+  function togglePlayer(name) {
+    setSelected(prev => prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name]);
   }
 
-  function removeJoueur(i) {
-    setJoueurs(joueurs.filter((_, idx) => idx !== i));
-  }
-
-  function updateJoueur(i, val) {
-    const copy = [...joueurs];
-    copy[i] = val;
-    setJoueurs(copy);
+  function handleAddNew(e) {
+    e.preventDefault();
+    const trimmed = newName.trim();
+    if (!trimmed) return;
+    onAdd(trimmed);
+    setSelected(prev => [...prev, trimmed]);
+    setNewName('');
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     const nb = parseInt(manches);
-    const players = joueurs.map(j => j.trim()).filter(Boolean);
-    if (!nb || nb < 1 || players.length < 1) return;
-    onDone({ manches: nb, joueurs: players });
+    if (!nb || nb < 1 || selected.length < 1) return;
+    onDone({ manches: nb, joueurs: selected });
   }
 
   return (
     <div className="screen setup-screen">
+      <button className="btn btn-secondary btn-sm back-btn" onClick={onBack}>← Retour</button>
       <h2>Configuration du tournoi</h2>
       <form onSubmit={handleSubmit} className="setup-form">
+
         <div className="field">
           <label>Nombre de manches</label>
           <input
@@ -42,25 +43,45 @@ export default function Setup({ onDone }) {
         </div>
 
         <div className="field">
-          <label>Joueurs</label>
-          {joueurs.map((j, i) => (
-            <div key={i} className="joueur-row">
-              <input
-                type="text"
-                value={j}
-                onChange={e => updateJoueur(i, e.target.value)}
-                placeholder={`Joueur ${i + 1}`}
-                required
-              />
-              {joueurs.length > 1 && (
-                <button type="button" className="btn btn-danger btn-sm" onClick={() => removeJoueur(i)}>✕</button>
-              )}
-            </div>
-          ))}
-          <button type="button" className="btn btn-secondary" onClick={addJoueur}>+ Ajouter un joueur</button>
+          <label>Qui joue ? ({selected.length} sélectionné{selected.length > 1 ? 's' : ''})</label>
+          <div className="players-select">
+            {players.map(p => (
+              <button
+                key={p.id}
+                type="button"
+                className={`player-chip ${selected.includes(p.name) ? 'selected' : ''}`}
+                onClick={() => togglePlayer(p.name)}
+              >
+                {p.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="add-player-form">
+            <input
+              type="text"
+              value={newName}
+              onChange={e => setNewName(e.target.value)}
+              placeholder="Nouveau joueur..."
+            />
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={handleAddNew}
+              disabled={!newName.trim()}
+            >
+              + Ajouter
+            </button>
+          </div>
         </div>
 
-        <button type="submit" className="btn btn-primary btn-large">Démarrer le tournoi !</button>
+        <button
+          type="submit"
+          className="btn btn-primary btn-large"
+          disabled={!manches || selected.length < 1}
+        >
+          Démarrer le tournoi !
+        </button>
       </form>
     </div>
   );
