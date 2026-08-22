@@ -15,6 +15,8 @@ import JoinTournament from './components/JoinTournament';
 import History from './components/History';
 import HistoryDetail from './components/HistoryDetail';
 import AccountSettings from './components/AccountSettings';
+import WhoAreYou from './components/WhoAreYou';
+import { tirerPourJoueurs, vitrineDe } from './data/stickers';
 import { useMalus } from './hooks/useMalus';
 import { createTournamentCode, cleanupStaleTournaments } from './lib/tournamentCode';
 import './App.css';
@@ -41,14 +43,18 @@ export default function App() {
   const [historyEntry, setHistoryEntry] = useState(null);
 
   const { user, uid, isAnonymous, loading: authLoading, error: authError, linkGoogle, removeAccount } = useAuth();
-  const { players, addPlayer, deletePlayer, recordResults, updateCircuitMaudit, updateAvatar, updateCitation } = usePlayers();
+  const {
+    players, loaded: playersLoaded, addPlayer, deletePlayer, recordResults,
+    updateCircuitMaudit, updateAvatar, updateCitation, claimPlayer, unclaimPlayer,
+    grantSticker, setShowcase,
+  } = usePlayers();
   const { malus } = useMalus();
   const {
     tournament, loading: tournamentLoading, code, activateCode, clearCode,
     startSpin, triggerSpin, advanceSpin, markSpinDone, finishSpin,
     revealCircuits, chooseCircuit, nextRound,
     saveHalftimeScores, confirmHalftime, saveFinalScores, savePodium,
-    endTournament, flipCard,
+    endTournament, flipCard, saveStickerDrops,
   } = useTournament(uid);
 
   // Ménage des tournois abandonnés, une fois par lancement.
@@ -75,6 +81,25 @@ export default function App() {
     await endTournament();
     clearCode();
     setScreen('welcome');
+  }
+
+  // Deux tirages par tournoi : un à la mi-temps, un à la fin. Le résultat est
+  // écrit dans le tournoi pour que tous les téléphones voient la même annonce,
+  // et pas seulement celui qui a appuyé sur le bouton.
+  function tirerStickers(moment) {
+    const joueurs = Array.isArray(tournament?.joueurs)
+      ? tournament.joueurs
+      : Object.values(tournament?.joueurs || {});
+    if (joueurs.length === 0) return;
+    const gains = tirerPourJoueurs(joueurs);
+    if (gains.length === 0) return;
+    for (const g of gains) grantSticker(g.joueur, g.stickerId);
+    saveStickerDrops(moment, gains);
+  }
+
+  function handleConfirmHalftime() {
+    tirerStickers('halftime');
+    confirmHalftime();
   }
 
   function handleSetupDone(cfg) {
@@ -126,6 +151,7 @@ export default function App() {
       wantedPlayer: tournament?.wantedPlayer,
     });
     savePodium(podiumResult);
+    tirerStickers('final');
     saveFinalScores(scores);
   }
 
@@ -134,6 +160,8 @@ export default function App() {
     clearCode();
     setScreen('welcome');
   }
+
+  const me = uid ? players.find(p => p.uid === uid) : null;
 
   if (authLoading || (code && tournamentLoading)) {
     return <div className="app loading">Chargement...</div>;
@@ -188,7 +216,7 @@ export default function App() {
           onChoose={chooseCircuit}
           onNext={nextRound}
           onSaveHalftimeScores={saveHalftimeScores}
-          onConfirmHalftime={confirmHalftime}
+          onConfirmHalftime={handleConfirmHalftime}
           onFinalScoresDone={handleFinalScoresDone}
           onRestart={handleRestart}
         />
@@ -212,11 +240,31 @@ export default function App() {
     );
   }
 
+  // Proposé une seule fois, et jamais au milieu d'une partie.
+  if (!me && playersLoaded && uid && !tournament && screen === 'welcome') {
+    return (
+      <div className="app">
+        <WhoAreYou
+          players={players}
+          onPick={p => {
+            if (p.uid && p.uid !== uid && !window.confirm(`${p.name} est déjà associé à un autre téléphone. Prendre sa place ?`)) return;
+            claimPlayer(p.id, uid);
+          }}
+          onCreate={nom => {
+            const id = addPlayer(nom);
+            if (id) claimPlayer(id, uid);
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       {screen === 'welcome' && (
         <Welcome
           players={players}
+          me={me}
           creating={creating}
           error={codeError}
           onStart={handleLaunch}
@@ -258,6 +306,8 @@ export default function App() {
       )}
       {screen === 'account' && (
         <AccountSettings
+          me={me}
+          onChangeIdentity={() => { if (me) unclaimPlayer(me.id); }}
           isAnonymous={isAnonymous}
           email={user?.email}
           onLinkGoogle={linkGoogle}
@@ -266,16 +316,29 @@ export default function App() {
         />
       )}
       {screen === 'stats' && (
-        <Stats players={players} onBack={() => setScreen('welcome')} />
+        <Stats players={players} me={me} onBack={() => setScreen('welcome')} />
       )}
       {screen === 'manage' && (
         <ManagePlayers
           players={players}
+          me={me}
+          onClaim={p => claimPlayer(p.id, uid)}
+          onUnclaim={p => unclaimPlayer(p.id)}
           onAdd={addPlayer}
           onDelete={deletePlayer}
           onUpdateCircuitMaudit={updateCircuitMaudit}
           onUpdateAvatar={updateAvatar}
           onUpdateCitation={updateCitation}
+          onToggleSticker={(p, stickerId) => {
+            // On part de ce qui est réellement affiché : sans choix explicite,
+            // la vitrine montre les plus rares, et un clic dessus doit les
+            // retirer — pas repartir d'une liste vide.
+            const actuelle = vitrineDe(p).map(s => s.id);
+            const suivante = actuelle.includes(stickerId)
+              ? actuelle.filter(x => x !== stickerId)
+              : [...actuelle, stickerId].slice(0, 3);
+            setShowcase(p.id, suivante);
+          }}
           onBack={() => setScreen('welcome')}
         />
       )}

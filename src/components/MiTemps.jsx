@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { StickerDrops } from './Stickers';
 import ScoreEntry from './ScoreEntry';
 
-export default function MiTemps({ joueurs, savedScores, onSaveScores, onContinue }) {
+export default function MiTemps({ joueurs, savedScores, stickerDrops, onSaveScores, onContinue }) {
   const [localSaved, setLocalSaved] = useState(false);
   // Scores saisis localement OU déjà présents dans Firebase (autre appareil)
   const scoresEntered = localSaved || !!savedScores;
@@ -33,6 +34,8 @@ export default function MiTemps({ joueurs, savedScores, onSaveScores, onContinue
           <p className="scores-saved-msg">✅ Scores enregistrés !</p>
         )}
       </div>
+
+      <StickerDrops drops={stickerDrops} />
 
       <button
         className="btn btn-primary btn-large miTemps-continue-btn"

@@ -139,6 +139,12 @@ export function useTournament(uid) {
     });
   }
 
+  // Les gains sont écrits dans le tournoi, pas seulement affichés localement :
+  // sans ça, seul le téléphone qui a cliqué verrait le tirage.
+  function saveStickerDrops(moment, gains) {
+    update(ref(db, `tournaments/${code}/stickerDrops`), { [moment]: gains });
+  }
+
   function saveHalftimeScores(scores) {
     update(base(), { halftimeScores: scores });
   }
@@ -179,6 +185,6 @@ export function useTournament(uid) {
     startSpin, triggerSpin, advanceSpin, markSpinDone, finishSpin, flipCard,
     revealCircuits, chooseCircuit, nextRound,
     saveHalftimeScores, confirmHalftime, saveFinalScores,
-    savePodium, endTournament
+    savePodium, endTournament, saveStickerDrops
   };
 }

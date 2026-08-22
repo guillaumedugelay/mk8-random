@@ -4,24 +4,23 @@ import { ref, onValue, set, update } from 'firebase/database';
 
 export function usePlayers() {
   const [players, setPlayers] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const playersRef = ref(db, 'players');
     const unsub = onValue(playersRef, snapshot => {
       const data = snapshot.val();
-      if (data) {
-        setPlayers(Object.values(data));
-      } else {
-        setPlayers([]);
-      }
+      setPlayers(data ? Object.values(data) : []);
+      setLoaded(true);
     });
     return () => unsub();
   }, []);
 
   function addPlayer(name) {
     const trimmed = name.trim();
-    if (!trimmed) return;
-    if (players.find(p => p.name.toLowerCase() === trimmed.toLowerCase())) return;
+    if (!trimmed) return null;
+    const existant = players.find(p => p.name.toLowerCase() === trimmed.toLowerCase());
+    if (existant) return existant.id;
     const id = Date.now();
     set(ref(db, `players/${id}`), {
       id,
@@ -33,6 +32,7 @@ export function usePlayers() {
       bestStreak: 0,
       stats: { played: 0, first: 0, second: 0, third: 0 }
     });
+    return id;
   }
 
   function deletePlayer(id) {
@@ -79,5 +79,38 @@ export function usePlayers() {
     update(ref(db, `players/${id}`), { citation });
   }
 
-  return { players, addPlayer, deletePlayer, recordResults, updateCircuitMaudit, updateAvatar, updateCitation };
+  // « C'est moi » : rattache une fiche joueur à l'appareil. Sert uniquement à
+  // l'affichage — mettre son nom en évidence, saluer à l'accueil. Ça ne donne
+  // aucun droit particulier : tout le monde continue de pouvoir tout éditer,
+  // sans quoi les fiches de ceux qui n'ont pas l'app deviendraient intouchables.
+  function claimPlayer(id, uid) {
+    if (!uid) return;
+    // Un appareil ne peut être qu'un seul joueur : on libère l'ancienne fiche.
+    for (const p of players) {
+      if (p.uid === uid && p.id !== id) update(ref(db, `players/${p.id}`), { uid: null });
+    }
+    update(ref(db, `players/${id}`), { uid });
+  }
+
+  // Les doublons comptent : on incrémente plutôt que d'écraser.
+  function grantSticker(playerName, stickerId) {
+    const player = players.find(p => p.name === playerName);
+    if (!player) return;
+    const actuel = (player.stickers && player.stickers[stickerId]) || 0;
+    update(ref(db, `players/${player.id}/stickers`), { [stickerId]: actuel + 1 });
+  }
+
+  function setShowcase(id, showcase) {
+    update(ref(db, `players/${id}`), { showcase: showcase.length ? showcase : null });
+  }
+
+  function unclaimPlayer(id) {
+    update(ref(db, `players/${id}`), { uid: null });
+  }
+
+  return {
+    players, loaded, addPlayer, deletePlayer, recordResults,
+    updateCircuitMaudit, updateAvatar, updateCitation,
+    claimPlayer, unclaimPlayer, grantSticker, setShowcase,
+  };
 }

@@ -1,6 +1,7 @@
 import Avatar from './Avatar';
+import { StickerRow } from './Stickers';
 
-export default function Stats({ players, onBack }) {
+export default function Stats({ players, me = null, onBack }) {
   const sorted = [...players].sort((a, b) => {
     if (b.stats.first !== a.stats.first) return b.stats.first - a.stats.first;
     if (b.stats.second !== a.stats.second) return b.stats.second - a.stats.second;
@@ -24,11 +25,13 @@ export default function Stats({ players, onBack }) {
           <span>Tournois</span>
         </div>
         {sorted.map((p, i) => (
-          <div key={p.id} className={`stats-row ${i === 0 && p.stats.first > 0 ? 'top-player' : ''}`}>
+          <div key={p.id} className={`stats-row ${i === 0 && p.stats.first > 0 ? 'top-player' : ''} ${me && p.id === me.id ? 'is-me' : ''}`}>
             <span className="stats-rank">{i + 1}</span>
             <span className="stats-name">
               <Avatar avatarId={p.avatarId} size={28} />
               {p.name}
+              <StickerRow player={p} />
+              {me && p.id === me.id && <span className="me-badge">toi</span>}
             </span>
             <span className="stats-val gold">{p.stats.first}</span>
             <span className="stats-val silver">{p.stats.second}</span>

@@ -2,11 +2,17 @@ import { useState } from 'react';
 import { CIRCUITS } from '../data/data';
 import Avatar from './Avatar';
 import AvatarPicker from './AvatarPicker';
+import { StickerRow, StickerCollection } from './Stickers';
 
-export default function ManagePlayers({ players, onAdd, onDelete, onUpdateCircuitMaudit, onUpdateAvatar, onUpdateCitation, onBack }) {
+export default function ManagePlayers({ players, me = null, onClaim, onUnclaim, onAdd, onDelete, onUpdateCircuitMaudit, onUpdateAvatar, onUpdateCitation, onToggleSticker, onBack }) {
   const [newName, setNewName] = useState('');
   const [editingId, setEditingId] = useState(null);
-  const [editTab, setEditTab] = useState('avatar'); // 'avatar' | 'circuit'
+  const [editTab, setEditTab] = useState('avatar'); // 'avatar' | 'circuit' | 'citation' | 'stickers'
+
+  // La fiche de celui qui tient le téléphone remonte en tête.
+  const ordonnes = me
+    ? [me, ...players.filter(p => p.id !== me.id)]
+    : players;
 
   function handleAdd(e) {
     e.preventDefault();
@@ -31,15 +37,28 @@ export default function ManagePlayers({ players, onAdd, onDelete, onUpdateCircui
 
       <div className="players-list">
         {players.length === 0 && <p className="empty-msg">Aucun joueur enregistré.</p>}
-        {players.map(p => (
-          <div key={p.id} className="player-item-card">
+        {ordonnes.map(p => (
+          <div key={p.id} className={`player-item-card ${me && p.id === me.id ? 'is-me' : ''}`}>
             <div className="player-item">
               <Avatar avatarId={p.avatarId} size={36} />
               <div className="player-item-info">
-                <span className="player-item-name">{p.name}</span>
+                <span className="player-item-name">
+                  {p.name}
+                  <StickerRow player={p} />
+                  {me && p.id === me.id && <span className="me-badge">toi</span>}
+                </span>
                 {p.citation && <span className="player-item-citation">"{p.citation}"</span>}
               </div>
               <span className="player-item-stats">{p.stats.played} tournoi{p.stats.played > 1 ? 's' : ''}</span>
+              {me && p.id === me.id ? (
+                <button className="btn-link btn-claim" onClick={() => onUnclaim(p)} title="Ce n'est pas moi">
+                  ce n'est pas moi
+                </button>
+              ) : (
+                <button className="btn-link btn-claim" onClick={() => onClaim(p)} title="Associer cette fiche à ce téléphone">
+                  c'est moi
+                </button>
+              )}
               <button
                 className="btn btn-secondary btn-sm"
                 onClick={() => { setEditingId(editingId === p.id ? null : p.id); setEditTab('avatar'); }}
@@ -55,6 +74,7 @@ export default function ManagePlayers({ players, onAdd, onDelete, onUpdateCircui
                   <button className={`edit-tab ${editTab === 'avatar' ? 'active' : ''}`} onClick={() => setEditTab('avatar')}>Avatar</button>
                   <button className={`edit-tab ${editTab === 'circuit' ? 'active' : ''}`} onClick={() => setEditTab('circuit')}>Circuit maudit</button>
                   <button className={`edit-tab ${editTab === 'citation' ? 'active' : ''}`} onClick={() => setEditTab('citation')}>Citation</button>
+                  <button className={`edit-tab ${editTab === 'stickers' ? 'active' : ''}`} onClick={() => setEditTab('stickers')}>Stickers</button>
                 </div>
 
                 {editTab === 'avatar' && (
@@ -77,6 +97,10 @@ export default function ManagePlayers({ players, onAdd, onDelete, onUpdateCircui
                     />
                     <span className="citation-hint">{(p.citation || '').length}/80</span>
                   </div>
+                )}
+
+                {editTab === 'stickers' && (
+                  <StickerCollection player={p} onToggle={id => onToggleSticker(p, id)} />
                 )}
 
                 {editTab === 'circuit' && (

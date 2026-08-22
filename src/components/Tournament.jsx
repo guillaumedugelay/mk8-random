@@ -102,7 +102,7 @@ export default function Tournament({
   onSaveHalftimeScores, onConfirmHalftime,
   onFinalScoresDone, onRestart,
 }) {
-  const { manches, currentRound, chosen = {}, revealed = false, currentChoices = [], halftimeActive, halftimeScores, finalScores, luckyPlayer, wantedPlayer } = tournament;
+  const { manches, currentRound, chosen = {}, revealed = false, currentChoices = [], halftimeActive, halftimeScores, finalScores, luckyPlayer, wantedPlayer, stickerDrops = {} } = tournament;
 
   // Firebase convertit les tableaux en objets — on reconvertit
   const joueurs = Array.isArray(tournament.joueurs)
@@ -173,6 +173,7 @@ export default function Tournament({
         <MiTemps
           joueurs={joueurs}
           savedScores={halftimeScores}
+          stickerDrops={stickerDrops.halftime}
           onSaveScores={onSaveHalftimeScores}
           onContinue={onConfirmHalftime}
         />
@@ -215,6 +216,7 @@ export default function Tournament({
               playersList={playersList}
               luckyPlayer={luckyPlayer}
               wantedPlayer={wantedPlayer}
+              stickerDrops={stickerDrops.final}
               onRestart={onRestart}
             />
           );

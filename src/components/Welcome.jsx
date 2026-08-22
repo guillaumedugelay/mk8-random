@@ -1,6 +1,8 @@
+import { StickerRow } from './Stickers';
+
 export default function Welcome({
   onStart, onJoin, onStats, onManage, onHistory, onAccount, onChef,
-  players, creating = false, error = '',
+  players, me = null, creating = false, error = '',
 }) {
   const records = computeRecords(players);
 
@@ -9,6 +11,11 @@ export default function Welcome({
       <div className="title-block">
         <h1 className="game-title">MK8<br />Random<br />Racers</h1>
         <p className="subtitle">Le tournoi Mario Kart 8 Deluxe complètement déjanté !</p>
+        {me && (
+          <p className="welcome-hello">
+            Salut {me.name} !<StickerRow player={me} size="md" />
+          </p>
+        )}
       </div>
 
       <div className="records-block">

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const PRIVACY_URL = 'https://guizor.github.io/mk8-racers/confidentialite.html';
 
-export default function AccountSettings({ isAnonymous, email, onLinkGoogle, onDeleteAccount, onBack }) {
+export default function AccountSettings({ me = null, onChangeIdentity, isAnonymous, email, onLinkGoogle, onDeleteAccount, onBack }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
@@ -41,12 +41,34 @@ export default function AccountSettings({ isAnonymous, email, onLinkGoogle, onDe
       <h2>Mon compte</h2>
 
       <div className="account-card">
+        <h3>Mon joueur</h3>
+        {me ? (
+          <>
+            <p className="account-text">
+              Ce téléphone est associé à <b>{me.name}</b>. Ton nom est mis en évidence
+              dans les classements — ça ne change rien à ce que tu peux modifier.
+            </p>
+            <button className="btn btn-secondary" onClick={onChangeIdentity}>
+              Ce n'est pas moi
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="account-text">
+              Aucun joueur associé à ce téléphone. Choisis-toi dans la liste depuis
+              « Gérer les joueurs » pour retrouver ton nom en évidence.
+            </p>
+          </>
+        )}
+      </div>
+
+      <div className="account-card">
         <h3>Sauvegarder mon accès</h3>
         {isAnonymous ? (
           <>
             <p className="account-text">
               Ton compte est lié à cette installation. Si tu changes de téléphone ou
-              réinstalles l'app, tu repars de zéro.
+              réinstalles l'app, tu repars de zéro{me ? ` et ${me.name} sera à redéclarer` : ''}.
             </p>
             <button className="btn btn-primary" onClick={handleLink} disabled={busy}>
               Lier un compte Google

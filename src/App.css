@@ -2284,3 +2284,293 @@ input:focus {
   line-height: 1.5;
   margin: 0 0 12px;
 }
+
+/* ---------- « C'est moi » : identité du téléphone ---------- */
+
+.welcome-hello {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 10px 0 0;
+  opacity: 0.9;
+}
+
+.me-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(74, 222, 128, 0.22);
+  color: #4ade80;
+  vertical-align: middle;
+}
+
+.stats-row.is-me,
+.player-item-card.is-me {
+  background: rgba(74, 222, 128, 0.1);
+  box-shadow: inset 3px 0 0 #4ade80;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.78rem;
+  opacity: 0.6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.btn-link:hover,
+.btn-link:focus-visible { opacity: 1; }
+
+.btn-claim { white-space: nowrap; }
+
+/* ---------- Écran « Qui es-tu ? » ---------- */
+
+.whoami-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.whoami-hint {
+  max-width: 40ch;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.whoami-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.whoami-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.whoami-choice:hover,
+.whoami-choice:focus-visible { background: rgba(255, 255, 255, 0.16); }
+
+.whoami-name { font-weight: 700; flex: 1 1 auto; }
+
+.whoami-taken {
+  font-size: 0.72rem;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.whoami-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.whoami-form-btns { display: flex; gap: 10px; }
+.whoami-form-btns .btn { flex: 1 1 auto; }
+
+.whoami-skip { margin-top: 4px; }
+
+/* ---------- Stickers ---------- */
+/* Le palier doit se lire d'un coup d'œil : disque plein et saturé plutôt
+   qu'un fond translucide, qui disparaissait derrière l'emoji. */
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 50%;
+  border: 2px solid;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+.sticker-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.sticker-row.sticker-sm .sticker { width: 24px; height: 24px; font-size: 0.8rem; }
+.sticker-row.sticker-md .sticker { width: 30px; height: 30px; font-size: 1rem; }
+.sticker-lg { width: 46px; height: 46px; font-size: 1.5rem; }
+
+.rarete-vert {
+  background: radial-gradient(circle at 32% 28%, #4ade80, #16a34a 70%);
+  border-color: #86efac;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 5px rgba(22, 163, 74, 0.45);
+}
+
+.rarete-bleu {
+  background: radial-gradient(circle at 32% 28%, #60a5fa, #1d4ed8 70%);
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(37, 99, 235, 0.55);
+}
+
+.rarete-rouge {
+  background: radial-gradient(circle at 32% 28%, #f87171, #b91c1c 70%);
+  border-color: #fca5a5;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 7px rgba(220, 38, 38, 0.6);
+}
+
+.rarete-dore {
+  background: linear-gradient(145deg, #fef3c7 0%, #fbbf24 42%, #d97706 78%, #fde68a 100%);
+  border-color: #fff2c0;
+  box-shadow:
+    0 0 0 1px rgba(120, 53, 15, 0.5),
+    0 0 12px rgba(251, 191, 36, 0.75),
+    0 2px 8px rgba(180, 83, 9, 0.5);
+  animation: sticker-shine 3.2s ease-in-out infinite;
+}
+
+@keyframes sticker-shine {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.22); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rarete-dore { animation: none; }
+}
+
+/* Pastille de palier, pour nommer la couleur sans ambiguïté */
+.rarete-pastille {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0b0d10;
+}
+
+.pastille-vert  { background: #4ade80; }
+.pastille-bleu  { background: #60a5fa; }
+.pastille-rouge { background: #f87171; }
+.pastille-dore  { background: linear-gradient(90deg, #fde68a, #fbbf24); }
+
+/* ---------- Annonce des gains ---------- */
+
+.sticker-drops {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.sticker-drops-title {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.sticker-drop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+
+.sticker-drop:last-child { margin-bottom: 0; }
+.sticker-drop .rarete-pastille { margin-left: auto; }
+
+/* ---------- Collection ---------- */
+
+.sticker-empty { font-size: 0.88rem; line-height: 1.5; }
+
+.sticker-collection-hint {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin: 0 0 10px;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  gap: 8px;
+}
+
+.sticker-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-height: 112px;
+  padding: 12px 6px 10px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Le liseré reprend la couleur du palier : la grille se lit par couleur. */
+.sticker-cell.rarete-vert  { border-color: rgba(74, 222, 128, 0.55);  background: rgba(22, 163, 74, 0.12); }
+.sticker-cell.rarete-bleu  { border-color: rgba(96, 165, 250, 0.55);  background: rgba(37, 99, 235, 0.12); }
+.sticker-cell.rarete-rouge { border-color: rgba(248, 113, 113, 0.55); background: rgba(185, 28, 28, 0.12); }
+.sticker-cell.rarete-dore  { border-color: rgba(251, 191, 36, 0.7);   background: rgba(217, 119, 6, 0.14); }
+
+/* La cellule n'hérite pas du disque : seul l'emoji dedans le porte. */
+.sticker-cell { box-shadow: none; animation: none; }
+
+.sticker-cell.is-active {
+  box-shadow: 0 0 0 2px #fff inset;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.sticker-cell:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.sticker-cell-nom {
+  font-size: 0.68rem;
+  text-align: center;
+  line-height: 1.25;
+  opacity: 0.85;
+}
+
+.sticker-count {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0 4px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.45);
+}
