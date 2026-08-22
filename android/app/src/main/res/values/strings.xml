@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MK8 Racers</string>
+    <string name="title_activity_main">MK8 Racers</string>
+    <string name="package_name">com.guizor.randomracers</string>
+    <string name="custom_url_scheme">com.guizor.randomracers</string>
+</resources>

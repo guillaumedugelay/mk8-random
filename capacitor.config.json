@@ -1,0 +1,22 @@
+{
+  "appId": "com.guizor.randomracers",
+  "appName": "MK8 Racers",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#1a0b2e"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 900,
+      "backgroundColor": "#1a0b2e",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "androidSpinnerStyle": "small",
+      "splashImmersive": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#1a0b2e"
+    }
+  }
+}

@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Capacitor : sorties de build Android (le projet android/ lui-meme est suivi,
+# il porte le manifeste, les icones et la configuration de signature)
+android/app/build
+android/build
+android/.gradle
+android/local.properties
+android/app/src/main/assets/public
+android/app/src/main/res/xml/config.xml

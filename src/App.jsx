@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { usePlayers } from './hooks/usePlayers';
 import { useTournament } from './hooks/useTournament';
 import { useAuth } from './hooks/useAuth';
 import { useWakeLock } from './hooks/useWakeLock';
+import { useBackButton } from './hooks/useBackButton';
 import Welcome from './components/Welcome';
 import Setup from './components/Setup';
 import Tournament, { combineScores } from './components/Tournament';
@@ -60,6 +61,19 @@ export default function App() {
 
   // L'écran reste allumé tant qu'un tournoi tourne.
   useWakeLock(!!tournament);
+
+  // Bouton retour Android. Renvoie true si le retour a été consommé ;
+  // false laisse l'app se fermer, ce qui n'arrive que depuis l'accueil.
+  const handleBackButton = useCallback(() => {
+    // Pendant un tournoi, le retour ne fait rien : une pression involontaire
+    // ne doit pas pouvoir sortir de la partie. On quitte par « Quitter ».
+    if (tournament) return true;
+    if (screen === 'history-detail') { setScreen('history'); return true; }
+    if (screen !== 'welcome') { setScreen('welcome'); return true; }
+    return false;
+  }, [tournament, screen]);
+
+  useBackButton(handleBackButton);
 
   // Ménage des tournois abandonnés, une fois par lancement.
   useEffect(() => {

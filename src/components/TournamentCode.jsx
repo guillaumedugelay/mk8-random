@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Share } from '@capacitor/share';
+import { Capacitor } from '@capacitor/core';
 
 export default function TournamentCode({ code, connectedCount, onContinue, onCancel }) {
   const [copied, setCopied] = useState(false);
@@ -16,15 +18,22 @@ export default function TournamentCode({ code, connectedCount, onContinue, onCan
   }
 
   async function handleShare() {
-    // Partage natif Android via Capacitor en phase 4 ; l'API web fait le
-    // travail partout où elle existe, sinon on retombe sur la copie.
-    if (navigator.share) {
-      try {
+    // Dans une WebView Android, navigator.share n'est pas fiable : on passe
+    // par le plugin natif dès qu'on tourne dans l'app, et on garde l'API web
+    // pour le navigateur. Dernier recours : la copie.
+    try {
+      if (Capacitor.isNativePlatform()) {
+        await Share.share({ title: 'MK8 Racers', text: message, dialogTitle: 'Inviter au tournoi' });
+        return;
+      }
+      if (navigator.share) {
         await navigator.share({ title: 'MK8 Racers', text: message });
         return;
-      } catch {
-        // partage annulé par l'utilisateur — rien à signaler
       }
+    } catch {
+      // Partage annulé par l'utilisateur : ne pas enchaîner sur la copie,
+      // ce serait agir sans qu'il l'ait demandé.
+      return;
     }
     handleCopy();
   }
