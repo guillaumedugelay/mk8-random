@@ -1,4 +1,4 @@
-import { RARETES, STICKER_PAR_ID, collectionDe, vitrineDe, MAX_VITRINE } from '../data/stickers';
+import { RARETES, STICKER_PAR_ID, collectionDe, vitrineDe } from '../data/stickers';
 
 // La vitrine affichée à côté d'un nom de joueur.
 export function StickerRow({ player, size = 'sm' }) {
@@ -59,23 +59,23 @@ export function StickerCollection({ player, onToggle }) {
   return (
     <div className="sticker-collection">
       <p className="sticker-collection-hint">
-        Choisis jusqu'à {MAX_VITRINE} stickers à afficher à côté de ton nom.
+        Toute ta collection. Choisis celui à afficher à côté de ton nom.
       </p>
       <div className="sticker-grid">
         {collection.map(s => {
           const actif = vitrine.includes(s.id);
-          const complet = vitrine.length >= MAX_VITRINE && !actif;
           return (
             <button
               key={s.id}
               className={`sticker-cell ${RARETES[s.rarete].classe} ${actif ? 'is-active' : ''}`}
               onClick={() => onToggle(s.id)}
-              disabled={complet}
-              title={complet ? `Retire d'abord un sticker (${MAX_VITRINE} maximum)` : `${s.nom} — ${RARETES[s.rarete].label}`}
+              aria-pressed={actif}
+              title={actif ? 'Affiché à côté de ton nom — cliquer pour le retirer' : `${s.nom} — ${RARETES[s.rarete].label}`}
             >
               <span className={`sticker sticker-lg ${RARETES[s.rarete].classe}`}>{s.emoji}</span>
               <span className="sticker-cell-nom">{s.nom}</span>
               {s.nombre > 1 && <span className="sticker-count">×{s.nombre}</span>}
+              {actif && <span className="sticker-actif">affiché</span>}
             </button>
           );
         })}

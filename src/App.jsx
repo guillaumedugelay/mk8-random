@@ -16,7 +16,7 @@ import History from './components/History';
 import HistoryDetail from './components/HistoryDetail';
 import AccountSettings from './components/AccountSettings';
 import WhoAreYou from './components/WhoAreYou';
-import { tirerPourJoueurs, vitrineDe } from './data/stickers';
+import { tirerPourJoueurs, vitrineDe, MAX_VITRINE } from './data/stickers';
 import { useMalus } from './hooks/useMalus';
 import { createTournamentCode, cleanupStaleTournaments } from './lib/tournamentCode';
 import './App.css';
@@ -334,9 +334,10 @@ export default function App() {
             // la vitrine montre les plus rares, et un clic dessus doit les
             // retirer — pas repartir d'une liste vide.
             const actuelle = vitrineDe(p).map(s => s.id);
+            // slice(-MAX_VITRINE) : avec une seule place, choisir remplace.
             const suivante = actuelle.includes(stickerId)
               ? actuelle.filter(x => x !== stickerId)
-              : [...actuelle, stickerId].slice(0, 3);
+              : [...actuelle, stickerId].slice(-MAX_VITRINE);
             setShowcase(p.id, suivante);
           }}
           onBack={() => setScreen('welcome')}

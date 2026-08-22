@@ -98,6 +98,10 @@ export function usePlayers() {
     if (!player) return;
     const actuel = (player.stickers && player.stickers[stickerId]) || 0;
     update(ref(db, `players/${player.id}/stickers`), { [stickerId]: actuel + 1 });
+    // Le tout premier sticker se met en vitrine tout seul : sans ça, il faudrait
+    // aller le sélectionner dans les réglages pour que quiconque le voie.
+    const dejaEnVitrine = Array.isArray(player.showcase) && player.showcase.length > 0;
+    if (!dejaEnVitrine) update(ref(db, `players/${player.id}`), { showcase: [stickerId] });
   }
 
   function setShowcase(id, showcase) {

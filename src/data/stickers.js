@@ -71,7 +71,7 @@ export const STICKERS = [
 
 export const STICKER_PAR_ID = Object.fromEntries(STICKERS.map(s => [s.id, s]));
 
-export const MAX_VITRINE = 3;
+export const MAX_VITRINE = 1; // un seul sticker mis en avant à côté du nom
 
 // D'abord le palier, ensuite un sticker au hasard dans ce palier.
 export function tirerSticker() {
@@ -108,16 +108,16 @@ export function collectionDe(player) {
     .sort((a, b) => ORDRE_RARETE.indexOf(a.rarete) - ORDRE_RARETE.indexOf(b.rarete));
 }
 
-// Les stickers mis en avant à côté du nom. À défaut de choix explicite, on
-// prend les plus rares : la vitrine est jolie sans que personne ait rien réglé.
+// Le sticker mis en avant à côté du nom : uniquement un choix explicite.
+// Pas de repli automatique sur le plus rare, sinon on ne pourrait jamais le
+// retirer — le clic pour désélectionner rebasculerait aussitôt sur le repli.
+// Le premier sticker gagné est mis en vitrine au moment du gain (usePlayers).
 export function vitrineDe(player) {
+  const choisis = Array.isArray(player?.showcase) ? player.showcase : [];
+  if (choisis.length === 0) return [];
   const collection = collectionDe(player);
-  const choisis = Array.isArray(player?.showcase) ? player.showcase : null;
-  if (choisis && choisis.length) {
-    return choisis
-      .map(id => collection.find(s => s.id === id))
-      .filter(Boolean)
-      .slice(0, MAX_VITRINE);
-  }
-  return collection.slice(0, MAX_VITRINE);
+  return choisis
+    .map(id => collection.find(s => s.id === id))
+    .filter(Boolean)
+    .slice(0, MAX_VITRINE);
 }

@@ -2574,3 +2574,24 @@ input:focus {
   border-radius: 6px;
   background: rgba(0, 0, 0, 0.45);
 }
+
+.sticker-cell.is-active {
+  box-shadow: 0 0 0 2px #fff inset;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sticker-actif {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px 8px 2px;
+  border-radius: 8px 8px 0 0;
+  background: #fff;
+  color: #0b0d10;
+  white-space: nowrap;
+}
