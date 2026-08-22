@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
 
-// Empêche l'écran de s'éteindre pendant un tournoi. Entre deux manches il se
-// passe plusieurs minutes sans toucher au téléphone : sans ça, l'écran
-// s'éteint et il faut le rallumer à chaque fois pour saisir un score.
+// Empêche l'écran de s'éteindre tant que l'app est au premier plan. Une
+// soirée s'étale sur une heure avec de longs moments sans toucher au
+// téléphone : sans ça, il faut le rallumer sans arrêt.
+//
+// Le verrou est automatiquement relâché par le navigateur quand la page
+// devient invisible, donc l'écran ne reste jamais allumé une fois l'app en
+// arrière-plan — c'est ce qui rend acceptable de le prendre en permanence.
 //
 // L'API n'existe pas partout (Safari iOS l'a depuis peu, certains navigateurs
 // pas du tout) : l'absence n'est pas une erreur, on s'en passe simplement.

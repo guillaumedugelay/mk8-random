@@ -59,8 +59,13 @@ export default function App() {
     endTournament, flipCard, saveStickerDrops,
   } = useTournament(uid);
 
-  // L'écran reste allumé tant qu'un tournoi tourne.
-  useWakeLock(!!tournament);
+  // L'écran reste allumé tant que l'app est au premier plan. Une soirée
+  // s'étale sur une heure avec de longs moments sans toucher au téléphone,
+  // et pas seulement pendant les manches : on consulte le panthéon, on
+  // ajoute un joueur, on attend les retardataires.
+  // Le verrou se relâche tout seul dès que l'app passe en arrière-plan,
+  // donc l'écran ne reste jamais allumé au-delà de son usage.
+  useWakeLock(true);
 
   // Bouton retour Android. Renvoie true si le retour a été consommé ;
   // false laisse l'app se fermer, ce qui n'arrive que depuis l'accueil.
