@@ -1,5 +1,15 @@
 apply plugin: 'com.android.application'
 
+// Signature de publication. Les identifiants vivent dans keystore.properties,
+// qui n'est PAS suivi par git : un keystore versionne, c'est la cle de l'app
+// publiee dans l'historique public du depot.
+// Voir android/keystore.properties.exemple pour le format attendu.
+def fichierSignature = rootProject.file("keystore.properties")
+def signature = new Properties()
+if (fichierSignature.exists()) {
+    fichierSignature.withInputStream { signature.load(it) }
+}
+
 android {
     namespace = "com.guizor.randomracers"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -16,8 +26,23 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (signature.containsKey('storeFile')) {
+                storeFile rootProject.file(signature['storeFile'])
+                storePassword signature['storePassword']
+                keyAlias signature['keyAlias']
+                keyPassword signature['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
+            // Sans keystore.properties, la variante release reste compilable
+            // mais non signee : on le decouvre au depot, pas apres.
+            if (signature.containsKey('storeFile')) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

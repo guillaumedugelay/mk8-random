@@ -31,3 +31,8 @@ android/.gradle
 android/local.properties
 android/app/src/main/assets/public
 android/app/src/main/res/xml/config.xml
+
+# Signature de publication : ni le keystore, ni ses mots de passe
+android/keystore.properties
+*.jks
+*.keystore

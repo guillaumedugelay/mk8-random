@@ -141,3 +141,52 @@ await writeFile(new URL('icon-512.png', STORE), await sharp(carre).resize(512, 5
 console.log('icônes générées :');
 console.log(`  ${DENSITES.length} densités × (classique + ronde + avant-plan)`);
 console.log('  store/icon-512.png');
+
+// ---- 6. Écrans de démarrage ----
+// Capacitor livre son propre logo par défaut. On pose l'icône au centre du
+// fond violet de l'app, pour que le lancement enchaîne sans rupture visuelle.
+const FOND_APP = { r: 0x1a, g: 0x0b, b: 0x2e }; // #1a0b2e, identique au body
+
+const SPLASH = [
+  ['mdpi', 320, 480],
+  ['hdpi', 480, 800],
+  ['xhdpi', 720, 1280],
+  ['xxhdpi', 960, 1600],
+  ['xxxhdpi', 1280, 1920],
+];
+
+async function splash(largeur, hauteur) {
+  // 38 % de la plus petite dimension : assez présent sans écraser l'écran.
+  const taille = Math.round(Math.min(largeur, hauteur) * 0.38);
+  // Coins arrondis : un carré à bords vifs posé sur le violet se lit comme un
+  // rectangle collé, pas comme l'icône de l'app.
+  const rayon = Math.round(taille * 0.22);
+  const masque = Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${taille}" height="${taille}">` +
+    `<rect width="${taille}" height="${taille}" rx="${rayon}" ry="${rayon}" fill="#fff"/></svg>`,
+  );
+  const logo = await sharp(carre)
+    .resize(taille, taille)
+    .composite([{ input: masque, blend: 'dest-in' }])
+    .png()
+    .toBuffer();
+  return sharp({
+    create: { width: largeur, height: hauteur, channels: 4, background: { ...FOND_APP, alpha: 1 } },
+  })
+    .composite([{ input: logo, gravity: 'centre' }])
+    .png()
+    .toBuffer();
+}
+
+for (const [densite, l, h] of SPLASH) {
+  for (const [suffixe, larg, haut] of [['port', l, h], ['land', h, l]]) {
+    const dir = new URL(`drawable-${suffixe}-${densite}/`, RES);
+    await mkdir(dir, { recursive: true });
+    await writeFile(new URL('splash.png', dir), await splash(larg, haut));
+  }
+}
+// Repli sans qualificatif de densité
+await mkdir(new URL('drawable/', RES), { recursive: true });
+await writeFile(new URL('drawable/splash.png', RES), await splash(480, 800));
+
+console.log(`  ${SPLASH.length * 2 + 1} écrans de démarrage`);
