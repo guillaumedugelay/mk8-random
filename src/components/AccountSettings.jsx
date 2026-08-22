@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const PRIVACY_URL = 'https://guizor.github.io/mk8-racers/confidentialite.html';
+const PRIVACY_URL = 'https://guillaumedugelay.github.io/mk8-random/confidentialite.html';
 
 export default function AccountSettings({ me = null, onChangeIdentity, isAnonymous, email, onLinkGoogle, onDeleteAccount, onBack }) {
   const [busy, setBusy] = useState(false);
