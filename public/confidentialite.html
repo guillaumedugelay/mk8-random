@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MK8 Racers — Politique de confidentialité</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --fond: #1a0b2e;
+      --carte: #241041;
+      --texte: #ece8f5;
+      --doux: #a99ec2;
+      --trait: #3b2260;
+      --accent: #ffd200;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 20px 80px;
+      background: var(--fond);
+      color: var(--texte);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+    }
+    main { max-width: 700px; margin: 0 auto; }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.15; margin: 0 0 8px; }
+    .maj { color: var(--doux); font-size: 0.9rem; margin: 0 0 36px; }
+    h2 {
+      font-size: 1.15rem;
+      margin: 36px 0 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--trait);
+    }
+    p, li { color: var(--texte); }
+    ul { padding-left: 1.2em; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--accent); font-weight: 700; }
+    .encadre {
+      background: var(--carte);
+      border: 1px solid var(--trait);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .encadre p:last-child { margin-bottom: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.94rem; }
+    th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--trait); vertical-align: top; }
+    th { color: var(--doux); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    a { color: var(--accent); }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--trait); color: var(--doux); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+<main>
+
+  <h1>Politique de confidentialité</h1>
+  <p class="maj">Application <strong>MK8 Racers</strong> · <code>com.guizor.randomracers</code> · Dernière mise à jour : 22 août 2026</p>
+
+  <div class="encadre">
+    <p>MK8 Racers est une application privée, utilisée par un petit groupe d'amis pour organiser
+    des tournois Mario&nbsp;Kart. Elle ne contient <strong>aucune publicité</strong>, <strong>aucun
+    outil de mesure d'audience</strong> et <strong>aucun traceur</strong>. Aucune donnée n'est
+    vendue, louée ni transmise à qui que ce soit à des fins commerciales.</p>
+  </div>
+
+  <h2>Qui est responsable</h2>
+  <p>Guillaume Dugelay, à titre personnel. Pour toute question ou demande relative à vos données :
+  <a href="mailto:guillaume.dugelay@gmail.com">guillaume.dugelay@gmail.com</a>.</p>
+
+  <h2>Ce que l'application enregistre</h2>
+
+  <table>
+    <thead>
+      <tr><th>Donnée</th><th>Pourquoi</th><th>Origine</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Identifiant anonyme</strong></td>
+        <td>Ouvrir une session technique et protéger la base contre les accès extérieurs</td>
+        <td>Généré automatiquement, sans aucun lien avec votre identité</td>
+      </tr>
+      <tr>
+        <td><strong>Pseudonyme de joueur</strong></td>
+        <td>Afficher les classements et l'historique</td>
+        <td>Saisi librement dans l'application</td>
+      </tr>
+      <tr>
+        <td><strong>Résultats de partie</strong></td>
+        <td>Statistiques, panthéon, historique des soirées</td>
+        <td>Saisis pendant le tournoi</td>
+      </tr>
+      <tr>
+        <td><strong>Adresse e-mail Google</strong></td>
+        <td>Retrouver son compte après un changement de téléphone</td>
+        <td><strong>Uniquement</strong> si vous liez volontairement un compte Google</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>L'application ne demande <strong>aucune permission Android sensible</strong> : ni contacts,
+  ni position, ni appareil photo, ni microphone, ni fichiers. Elle n'accède qu'au réseau.</p>
+
+  <h2>Une précision sur le pseudonyme</h2>
+  <p>Le pseudonyme est choisi librement. Si vous y mettez votre prénom ou votre nom, cette
+  information devient visible par les autres personnes qui utilisent l'application. C'est le
+  fonctionnement voulu&nbsp;: le classement est commun au groupe. Rien ne vous oblige à utiliser
+  votre vrai nom.</p>
+
+  <h2>Où sont stockées les données</h2>
+  <p>Sur <strong>Firebase Realtime Database</strong>, un service de Google Ireland Limited. Les
+  serveurs se trouvent dans l'Union européenne (région <code>europe-west1</code>, Belgique). Les
+  échanges sont chiffrés en transit (HTTPS).</p>
+  <p>La base n'est accessible qu'aux personnes disposant de l'application, via des règles de
+  sécurité qui refusent toute lecture ou écriture sans session authentifiée.</p>
+
+  <h2>Combien de temps</h2>
+  <ul>
+    <li><strong>Tournoi en cours</strong>&nbsp;: effacé dès la fin de la partie, et automatiquement au bout de 24&nbsp;heures s'il a été abandonné.</li>
+    <li><strong>Fiches joueurs, statistiques et historique</strong>&nbsp;: conservés tant que le groupe les souhaite, puisqu'ils constituent la mémoire des tournois.</li>
+    <li><strong>Identifiant anonyme</strong>&nbsp;: supprimé dès que vous supprimez votre compte.</li>
+  </ul>
+
+  <h2>Vos droits</h2>
+  <p>Conformément au RGPD, vous pouvez accéder à vos données, les corriger, les faire effacer,
+  vous opposer à leur traitement et en demander la portabilité.</p>
+
+  <div class="encadre">
+    <p><strong>Supprimer votre compte</strong>&nbsp;: dans l'application, ouvrez
+    <em>Mon compte</em> puis <em>Supprimer mon compte</em>. Votre identifiant est effacé
+    immédiatement.</p>
+    <p>Les fiches joueurs et les résultats de parties appartiennent au groupe et restent en place —
+    sans quoi le classement commun se troue. Pour demander leur suppression également, écrivez à
+    <a href="mailto:guillaume.dugelay@gmail.com">guillaume.dugelay@gmail.com</a>&nbsp;: la demande
+    sera traitée sous 30&nbsp;jours.</p>
+  </div>
+
+  <h2>Enfants</h2>
+  <p>L'application s'adresse à un public de 13&nbsp;ans et plus. Elle n'est pas conçue pour les
+  enfants et ne collecte pas sciemment leurs données.</p>
+
+  <h2>Modifications</h2>
+  <p>Toute évolution de cette politique sera publiée sur cette page, avec une nouvelle date de mise
+  à jour. Les changements significatifs seront signalés dans l'application.</p>
+
+  <footer>
+    MK8 Racers est une application personnelle sans but lucratif, sans lien avec Nintendo.
+    Mario&nbsp;Kart et les marques associées appartiennent à Nintendo.
+  </footer>
+
+</main>
+</body>
+</html>
